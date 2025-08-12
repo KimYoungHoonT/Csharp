@@ -417,3 +417,7 @@ namespace _20250806
 
     as 연산자는 타입이 맞는지 확인하여 true 또는 false를 반환한다. (O / X)
  */
+
+
+// for (; !player.IsDead && !m.IsDead; )
+
