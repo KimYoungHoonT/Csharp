@@ -56,7 +56,7 @@ class Program
             Console.WriteLine($"\n몬스터 등장! {m.Name} (HP:{m.Hp}, ATK:{m.Atk})");
 
             // 전투 시작
-            for (; !player.IsDead() && !m.IsDead();)
+            for (; !player.IsDead() && !m.IsDead();) // <- for문을 while처럼 사용
             {
                 // 플레이어 공격
                 player.Attack(m);
