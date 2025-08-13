@@ -21,7 +21,20 @@
 
 //    }
 //    // TODO: IsDead 속성(HP <= 0이면 true) 만들기
-//    public bool IsDead { get; set; }
+//    public bool IsDead (){ get; set; }
+//    
+// private bool _isDead;
+
+// public bool GetIsDead()
+// {
+//    return _isDead;
+// }
+
+// public void SetIsDead(bool isDead)
+// {
+//     _isDead = isDead;
+// }
+
 //}
 
 //class Player : Character// TODO: Character를 상속해서 만드세요
