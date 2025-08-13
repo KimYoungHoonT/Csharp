@@ -144,60 +144,63 @@
 //   ㄴ> 촬영지침 (가상메서드)
 //       { (밝게웃으며) 안녕하세요! ^^ }
 
-class Player
-{
-    public int hp;
-    public int mp;
+//class Player
+//{
+//    public int hp;
+//    public int mp;
 
-    public void Move()
-    {
-        Console.WriteLine("플레이어 이동!");
-    }
-}
+//    public void Move()
+//    {
+//        Console.WriteLine("플레이어 이동!");
+//    }
+//}
 
-class Knight : Player
-{
-   
-}
+//class Knight : Player
+//{
+//    public void Move()
+//    {
+//        Console.WriteLine("플레이어 이동!");
+//    }
+//}
 
-class SuperKnight : Knight
-{
-   
-}
+//class SuperKnight : Knight
+//{
 
-// 오버로딩 : 함수 이름 재사용
-// 오버라이딩 : 부모 메서드 재정의
+//}
 
-class Mage : Player
-{
-    public override void Move()
-    {
-        Console.WriteLine("날라서 이동!");
-    }
-}
+//// 오버로딩 : 함수 이름 재사용
+//// 오버라이딩 : 부모 메서드 재정의
 
-class Program
-{
-    static void Test (Player p)
-    {
-        p.Move();
-    }
+//class Mage : Player
+//{
+//    public override void Move()
+//    {
+//        Console.WriteLine("날라서 이동!");
+//    }
+//}
 
-    static void Main()
-    {
-        Player super = new SuperKnight(); 
-        super.Move();
+//class Program
+//{
+//    static void Test (Player p)
+//    {
+//        p.Move();
+//    }
+
+//    static void Main()
+//    {
+//        Player super = new SuperKnight(); 
+//        super.Move();
 
 
 
-        //Knight knight = new Knight();
-        //Mage mage = new Mage();
+//        //Knight knight = new Knight();
+//        //Mage mage = new Mage();
 
-        //knight.Move();
-        //mage.Move();
+//        //knight.Move();
+//        //mage.Move();
 
-    }
-}
+//    }
+//}
 
 //[스택]
 //[힙]
@@ -207,3 +210,39 @@ class Program
 //                                           │  Player.Move()    │  ← A에서 상속받은 메서드
 //                                           │  Knight.Move()    │  ← B에서 새로 정의한 메서드
 //                                           └──────-----─┘
+
+
+class Player
+{
+    public virtual void Move()
+    {
+        Console.WriteLine("Player.Move");
+    }
+}
+
+class Knight : Player
+{
+    public override void Move()
+    {
+        Console.WriteLine("Knight.Move");
+    }
+}
+
+class Mage : Player
+{
+    public override void Move()
+    {
+        Console.WriteLine("Mage.Move");
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        Player p1 = new Knight();
+        Player p2 = new Mage();
+        p1.Move();
+        p2.Move();
+    }
+}
