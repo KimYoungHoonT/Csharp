@@ -410,7 +410,9 @@ namespace _20250806
     }
 }
 
-
+Mage m = new Mage();
+bool isMage = m is Knight;
+Knight k = m as Knight; null 
 /*
    is 연산자는 형변환을 시도하고, 실패하면 null을 반환한다. (O / X)
 
@@ -693,4 +695,31 @@ class Program
     }
 }
  */
+class Program
+{
 
+    static void Main()
+    {
+        string name = "Hong GilDong";
+
+        // 1. 조회 / 찾기
+        bool found = name.Contains("s");
+        int index = name.IndexOf("z");
+
+
+        // 2. 변형
+        string nameLower = name.ToLower(); // 모두 소문자로 바꾸기
+        string nameUpper = name.ToUpper(); // 모두 대문자로 바꾸기  
+
+        string nameRe = name.Replace('g', 'l'); // 글자를 다른 글자로 치환
+
+        name = name + "Power";
+
+
+        // 3. 분할
+        string[] strings = name.Split(new char[] { ' ' });
+        string nameSub = name.Substring(1, 9);
+
+    }
+}
+}

@@ -30,7 +30,7 @@
 
 //class Player
 //{
-
+//    private int a;
 
 //    public void TakeDamage(int amount)
 //    {
@@ -149,7 +149,7 @@
 //    public int hp;
 //    public int mp;
 
-//    public void Move()
+//    public virture  void Move()
 //    {
 //        Console.WriteLine("플레이어 이동!");
 //    }
@@ -157,7 +157,7 @@
 
 //class Knight : Player
 //{
-//    public void Move()
+//    public override void Move()
 //    {
 //        Console.WriteLine("플레이어 이동!");
 //    }
@@ -173,7 +173,7 @@
 
 //class Mage : Player
 //{
-//    public override void Move()
+//    pr override void Move()
 //    {
 //        Console.WriteLine("날라서 이동!");
 //    }
@@ -211,38 +211,34 @@
 //                                           │  Knight.Move()    │  ← B에서 새로 정의한 메서드
 //                                           └──────-----─┘
 
+//class Player
+//{
+//    public virtual void Move()
+//    {
+//        Console.WriteLine("Player.Move");
+//    }
+//}
 
-class Player
-{
-    public virtual void Move()
-    {
-        Console.WriteLine("Player.Move");
-    }
-}
+//class Knight : Player
+//{
+//    public override void Move()
+//    {
+//        Console.WriteLine("Knight.Move(enter)");
+//        base.Move();
+//        Console.WriteLine("Knight.Move(exit)");
+//    }
+//}
 
-class Knight : Player
-{
-    public override void Move()
-    {
-        Console.WriteLine("Knight.Move");
-    }
-}
+//class Program
+//{
+//    static void Main()
+//    {
+//        Player p = new Knight();
+//        p.Move();
+//    }
+//}
 
-class Mage : Player
-{
-    public override void Move()
-    {
-        Console.WriteLine("Mage.Move");
-    }
-}
-
-class Program
-{
-    static void Main()
-    {
-        Player p1 = new Knight();
-        Player p2 = new Mage();
-        p1.Move();
-        p2.Move();
-    }
-}
+// 추상 : 공통된 속성과 기능을 하나로 묶고
+// 상속 : 묶은 기능에대해 자식클래스들이 넘겨 받으며
+// 다형 : 넘겨받은 기능을 재정의하여 성질을 다분화 하고
+// 캡슐 : 자식 또는 외부에 숨겨야할 내용들에 대해 보호수준을 설정한다
