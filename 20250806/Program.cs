@@ -16,9 +16,21 @@
 //  ㄴ> 핸들조작, 페달 조작, 차문 조작
 //    ㄴ> 전기장치, 엔진, 연료분사장치 
 
+// 프라이빗, 프로텍티드, 퍼블릭 상관없이 메모리에는 등재됨
+
+// Knight 객체 생성시 메모리구조
+// [Player] 
+// { int hp }
+// [Knight]
+// { }
+
+// 이런식으로 메모리에는 로드 되나 실제 클래스 내부로직에서 hp를 호출하지 못하는것뿐
+// 그래서 public int Get() {return hp;} 이런식으로 열려진 함수가 있다면
+// [Player]  메모리에서 가져와서 그 값을 알려줌
+
 class Player
 {
-    private int hp = 100;
+    
 
     public void TakeDamage(int amount)
     {
@@ -37,6 +49,8 @@ class Player
 
 class Knight : Player
 {
+
+    private int hp = 100;
     public static int count = 0;
     public int id;
 
