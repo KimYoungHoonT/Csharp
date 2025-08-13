@@ -28,68 +28,182 @@
 // 그래서 public int Get() {return hp;} 이런식으로 열려진 함수가 있다면
 // [Player]  메모리에서 가져와서 그 값을 알려줌
 
+//class Player
+//{
+
+
+//    public void TakeDamage(int amount)
+//    {
+//        hp -= amount;
+//        if (hp < 0) hp = 0;
+//    }
+
+//    public void Heal(int amount)
+//    {
+//        hp += amount;
+//        if (hp > 100) hp = 100;
+//    }
+
+//    public int GetHp() => hp;
+//}
+
+//class Knight : Player
+//{
+
+//    private int hp = 100;
+//    public static int count = 0;
+//    public int id;
+
+//    public Knight()
+//    {
+//        hp = 10;
+//        id = count++;
+//    }
+
+//    public void SecretFunction()
+//    {
+//        // 굉장히 중요한 기능
+//        // 타이밍이 중요
+//    }
+//}
+
+//class SuperKnight  : Knight
+//{
+//    public SuperKnight()
+//    {
+//        hp = 10;
+//        id = count++;
+//    }
+//}
+
+//class Program
+//{
+//    static void Main()
+//    {
+//        Knight knight = new Knight();
+//        knight.hp = 0;
+
+//        Knight.count = 10;
+
+//        knight.SecretFunction();
+
+//        Console.Clear();
+
+
+//    }
+//}
+
+//class A
+//{
+//    public void Act() { Console.WriteLine("A.Act"); }
+//}
+
+//class B : A
+//{
+//    public void Act(int x) // (L1) 시그니처 다름 → override 아님, 오버로드
+//    {
+//        Console.WriteLine($"B.Act({x})");
+//    }
+
+//    public void Test(int x) // (L1) 시그니처 다름 → override 아님, 오버로드
+//    {
+//        Console.WriteLine($"B.Act({x})");
+//    }
+//}
+//class Player
+//{
+//    protected int hp = 100;
+//}
+
+//class Knight : Player
+//{
+//    public void HitMe(int dmg)
+//    {
+//        hp -= dmg;               // (L1) ← 여기 접근 가능?
+//    }
+//}
+
+//class Program
+//{
+//    static void Main()
+//    {
+//        Knight k = new Knight();
+//        k.HitMe(30);
+//        Console.WriteLine(k.hp); // (L2) ← 여기 접근 가능?
+//    }
+//}
+
+// 다형성(Polymorphism) - 여러가지 형태를 가지는 성질
+// OOP 의 다형성 - 같은 이름의 메서드나 인터페이스를 통해 여러 다른 형태를 구현하는것
+
+// 감독 (부모클래스)
+//   ㄴ> 촬영지침 (가상메서드)
+//       { 안녕하세요 라며 인사 하는 장면 }
+
+// 배우 (자식클래스)
+//   ㄴ> 촬영지침 (가상메서드)
+//       { (밝게웃으며) 안녕하세요! ^^ }
+
 class Player
 {
-    
+    public int hp;
+    public int mp;
 
-    public void TakeDamage(int amount)
+    public void Move()
     {
-        hp -= amount;
-        if (hp < 0) hp = 0;
+        Console.WriteLine("플레이어 이동!");
     }
-
-    public void Heal(int amount)
-    {
-        hp += amount;
-        if (hp > 100) hp = 100;
-    }
-
-    public int GetHp() => hp;
 }
 
 class Knight : Player
 {
-
-    private int hp = 100;
-    public static int count = 0;
-    public int id;
-
-    public Knight()
-    {
-        hp = 10;
-        id = count++;
-    }
-
-    public void SecretFunction()
-    {
-        // 굉장히 중요한 기능
-        // 타이밍이 중요
-    }
+   
 }
 
-class SuperKnight  : Knight
+class SuperKnight : Knight
 {
-    public SuperKnight()
+   
+}
+
+// 오버로딩 : 함수 이름 재사용
+// 오버라이딩 : 부모 메서드 재정의
+
+class Mage : Player
+{
+    public override void Move()
     {
-        hp = 10;
-        id = count++;
+        Console.WriteLine("날라서 이동!");
     }
 }
 
 class Program
 {
+    static void Test (Player p)
+    {
+        p.Move();
+    }
+
     static void Main()
     {
-        Knight knight = new Knight();
-        knight.hp = 0;
+        Player super = new SuperKnight(); 
+        super.Move();
 
-        Knight.count = 10;
 
-        knight.SecretFunction();
 
-        Console.Clear();
+        //Knight knight = new Knight();
+        //Mage mage = new Mage();
 
-        
+        //knight.Move();
+        //mage.Move();
+
     }
 }
 
+//[스택]
+//[힙]
+//player ────────────────▶  ┌───────-----┐
+// (Player 타입 참조변수)                    │ Knight 객체(실체) │
+//                                           │--------------     │
+//                                           │  Player.Move()    │  ← A에서 상속받은 메서드
+//                                           │  Knight.Move()    │  ← B에서 새로 정의한 메서드
+//                                           └──────-----─┘
