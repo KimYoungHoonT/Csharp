@@ -79,11 +79,11 @@
 ////{
 ////    class Program
 ////    {
-////        enum ClassType
+////        enum ClassType  <- 정수형식  
 ////        {
-////            None,
+////            None = 8,
 ////            Knight,
-////            Mage,
+////            Mage = 5,
 ////            Rogue
 ////        }
 
@@ -91,11 +91,6 @@
 ////        {
 ////            public int hp;
 ////            public int atk;
-
-////              void Test()
-////              {
-                    
-////              }
 ////        }
 
 ////        static ClassType ClassChoice()

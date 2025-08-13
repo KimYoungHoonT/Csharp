@@ -20,22 +20,22 @@
 ////Console.Write("번호를 입력하세요 : ");
 ////string input = Console.ReadLine();
 
-////if (input == "1")
-////{
-////    Console.WriteLine("전사를 선택하셨습니다.");
-////}
-////else if (input == "2")
-////{
-////    Console.WriteLine("법사를 선택하셨습니다.");
-////}
-////else if (input == "3")
-////{
-////    Console.WriteLine("도둑을 선택하셨습니다.");
-////}
-////else
-////{
-////    Console.WriteLine("마법소녀을 선택하셨습니다.");
-////}
+//if (input == "1")
+//{
+//    Console.WriteLine("전사를 선택하셨습니다.");
+//}
+//else if (input == "2")
+//{
+//    Console.WriteLine("법사를 선택하셨습니다.");
+//}
+//else if (input == "3")
+//{
+//    Console.WriteLine("도둑을 선택하셨습니다.");
+//}
+//else
+//{
+//    Console.WriteLine("마법소녀을 선택하셨습니다.");
+//}
 
 ////// 삼항연산자
 ////// 축소판 if문 보급형 if문
@@ -124,7 +124,7 @@
 
 
 
-////int count = 5;
+//int count = 5;
 
 //while (count > 0)
 //{
@@ -132,27 +132,22 @@
 //    count -= 1;
 //}
 
-//do while
 //do
 //{
 //    Console.WriteLine("Hello World");
 //} while (false);
 
-
 // 스코프는 범위를 찝어 주는거다.
-
 //int a = 10;
 
 //{
 //   int b = 10;
 //}
-
 //a = 10;
 
 //int i = 0;
 //while (i < 10)
 //{
-
 
 //    i++;
 //}
@@ -165,10 +160,10 @@
 //*/
 
 
-////for (int j = 5; j > 0; --j) // 조건이 비워져있으면 true
-////{
-////    Console.WriteLine("Hello world");
-////}
+//for (int j = 5; true ; j--) // 조건이 비워져있으면 true
+//{
+//    Console.WriteLine("Hello world");
+//}
 
 //// 조건변경에서 후위연산하나 전위연산 하나 아무런 차이 없음
 
@@ -180,7 +175,6 @@
 //// 3. 명령 코드 실행
 //// 4. 조건변경
 //// 5. 조건
-
 
 // 함수가 실행전엔 메모리에 잡히지 않음
 // 함수가 실행되면 스택메모리 메모리가 잡힙
@@ -201,18 +195,21 @@
 
 
 //// 메모리구조
-//// 코드영역
-//// 데이터 영역
-//// 힙
-//// 스택 <- 함수 int float enum 
+// 코드영역
+// 데이터 영역
+// 힙 !!!!!!!!!!!!  // 배열 // 클래스 객체 = new A();
+// 스택 <- 함수 int float enum !!!!!! A a = new A()주소
+// 스택 0120323 값 참조형식 0xF1001FDDf null 주소없음
 
 //// 말이 어려워서 잘 안외우니까 꼭 외워라
 //// 값 전달 - 값을 복사해서 전달한다   
 
 ///*
 // // 이 함수는 a 와 b의 값을 서로 뒤바꾸는 함수
+
+
 //        // ref 써서 만들어 보세요.
-//        static void Swap(int x, int y)
+//        static void Swap(int , int y)
 //        {
 //            int temp = x;
 //            x = y;
@@ -225,7 +222,7 @@
 //            int x = 99;
 //            int y = 1;
 
-//            Swap(99, y);
+//            Swap(ref x, out y);
 //            Console.WriteLine(x); // 1
 //            Console.WriteLine(y); // 99
 //        }

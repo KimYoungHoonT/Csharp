@@ -1,69 +1,59 @@
-﻿//using System;
+﻿// float -> 실수형 데이터 형식
+// 3.14 2.5 3.0...
 
-//namespace MyApp2
-//{
-//    class Program
-//    {
-//        static void Main(string[] args)
-//        {
-
-//            // float -> 실수형 데이터 형식
-//            // 3.14 2.5 3.0...
-
-//            float hp = 222.14366666f; // 약 6.92 7자리의 정밀도
+// float hp = 222.14366666f; // 약 6.92 7자리의 정밀도
 //                                      // 32비트는 사용하는데 
 //                                      // 1비트 - 부호부 
 //                                      // 8비트 - 지수부 . 위치
 //                                      // 23비트 - 가수부 실제 숫자푠현     
 
-//            // 234.666 <- 더블 형식의 값이구나
-//            // 234.666f <- 플롯 형식의 값이구나
-//            float f = 4444.444f; // 약 7자리의 정밀도
-//            double d = 13333.5555555555; // 약 15~16자리의 정밀도
+// 234.666 <- 더블 형식의 값이구나
+// 234.666f <- 플롯 형식의 값이구나
+// float f = 4444.444f; // 약 7자리의 정밀도
+// double d = 13333.5555555555; // 약 15~16자리의 정밀도
 
-//            // string -> 문자열 데이터 형식
-//            // 기본형식과는 좀 다름 -> int, float
+// string -> 문자열 데이터 형식
+// 기본형식과는 좀 다름 -> int, float
+// Console.WriteLine("안녕하셈");
 
-//            // Console.WriteLine("안녕하셈");
+// char -> 문자 담는 데이터 형식
+//  'a', 'b'
+// char c = 'a';
 
-//            // char -> 문자 담는 데이터 형식
-//            // 'a', 'b'
-//            char c = 'a';
+// bool -> 참과 거짓을 담는 데이터 형식
+// bool isAlive = false; true;
 
-//            // bool -> 참과 거짓을 담는 데이터 형식
-//            bool isAlive = false; true;
+// 캐스팅 -> 형식 변환 
 
-//            // 캐스팅 -> 형식 변환 
+// 형식 변환의 종류
+// 명식적 형변환, 암시적 형변환 이라는게 있습니다.
 
-//            // 형식 변환의 종류
-//            // 명식적 형변환, 암시적 형변환 이라는게 있습니다.
+// 명시적 형변환 - "데이터 유실 위험 있음"
+// int high = 222222222;
+// short low = (short)high;
 
-//            // 명시적 형변환 - "데이터 유실 위험 있음"
-//            int high = 222222222;
-//            short low = (short)high;
+// 암시적 형변환 - "데이터 유실 위험 없음"
+// short low2 = 1;
+// int high2 = low2;
 
-//            // 암시적 형변환 - "데이터 유실 위험 없음"
-//            short low2 = 1;
-//            int high2 = low2;
-
-//            float high3 = high; // 200 //300.3 // 222222224 
-//                                //  "편의성 vs 안전성" 사이에서 타협을 했다고 합니다.
-//                                // https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/numeric-conversions?utm_source=chatgpt.com
-//                                // "Conversions from int, uint, long or ulong to float … may cause a loss of precision, but never a loss of magnitude.” 
+// float high3 = high; // 200 //300.3 // 222222224 
+// "편의성 vs 안전성" 사이에서 타협을 했다고 합니다.
+// https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/numeric-conversions?utm_source=chatgpt.com
+// "Conversions from int, uint, long or ulong to float … may cause a loss of precision, but never a loss of magnitude.” 
 
 
-//            // string -> int 스트링을 인트로 변환
-//            // ex)종족을 고르세요.
-//            // 1. 전사, 2. 마법사, 3. 도둑, 4. 마법소녀
-//            string name = Console.ReadLine(); // <- 4를 입력
-//                                              // int.Parse 안하면 4를 썻어도 int 인 4가 아님 문자열 "4" 가 저장됨
-//                                              // 저장된 데이터의 체계도 다름
-//                                              // int -> ... 0000 0100
-//                                              // string -> 8FA4 25FA
-//            int p = int.Parse(name); // <- 이때 "4" 가 4로 변환됨
-//            Console.WriteLine(p);
+//  string -> int 스트링을 인트로 변환
+//  ex)종족을 고르세요.
+//  1. 전사, 2. 마법사, 3. 도둑, 4. 마법소녀
+//  string name = Console.ReadLine(); // <- 4를 입력
+//  int.Parse 안하면 4를 썻어도 int 인 4가 아님 문자열 "4 다" 가 저장됨
+//  저장된 데이터의 체계도 다름
+//  int -> ... 0000 0100
+//  string -> 8FA4 25FA
+// int p = int.Parse(name); // <- 이때 "4" 가 4로 변환됨
+//  Console.WriteLine(p);
 
-//            // int -> string 정수를 스트링으로 변환
+//            // int -> string 정수를 스트링으로 
 //            // "+사과 {정수형 타입}개"
 //            // "+사과 {정수형 타입}개"
 //            // "+사과 {정수형 타입}개"
@@ -114,9 +104,9 @@
 //            bool isAlive = (hp > 0);
 //            Console.WriteLine(isAlive);
 
-//            // ctrl + kc : 주석 할때 
-//            // ctrl + ku : 주석 풀때
-//            // ctrl + / : 주석 하고 풀고
+//            ctrl + kc : 주석 할때 
+//            ctrl + ku : 주석 풀때
+//            ctrl + / : 주석 하고 풀고
 
 //            // 논리연산
 //            // 게임 아이템이 착용레벨이 50 이상 이고 힘 수치가 15 이상 일때 <- 다중조건
@@ -141,7 +131,3 @@
 //            //{
 //            //    isAlive = !isAlive;
 //            //}
-//}
-
-//}
-//}

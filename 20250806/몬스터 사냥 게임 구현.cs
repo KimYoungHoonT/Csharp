@@ -1,97 +1,143 @@
-﻿class Character
-{
-    public string Name;
-    public int Hp;
-    public int Atk;
+﻿//using System;
+//using System.Xml.Linq;
 
-    public Character(string name, int hp, int atk)
-    {
-        Name = name;
-        Hp = hp;
-        Atk = atk;
-    }
+//class Character
+//{
+//    // TODO: 이름, 체력, 공격력 필드 만들기
+//    public string name;
+//    public int hp;
+//    public int atk;
+//    // TODO: 생성자 만들기 (이름, 체력, 공격력 초기화)
+//    public Character(string name, int hp, int atk)
+//    {
+//        this.name = name;
+//        this.hp = hp;
+//        this.atk = atk;
+//    }
+//    // TODO: Attack(Character target) 함수 만들기
+//    public void Attack(Character target)
+//    {
+//        target.hp -= atk;
 
-    public virtual void Attack(Character target)
-    {
-        target.Hp -= Atk;
-        if (target.Hp < 0) target.Hp = 0;
-    }
+//    }
+//    // TODO: IsDead 속성(HP <= 0이면 true) 만들기
+//    public bool IsDead { get; set; }
+//}
 
-    public bool IsDead()
-    {
-        return Hp <= 0;
-    }
-}
+//class Player : Character// TODO: Character를 상속해서 만드세요
+//{
+//    // TODO: 경험치 필드 만들기
+//    public int exp;
+//    // TODO: 생성자 만들기
+//    public Player(string name, int hp, int atk, int exp) : base(name, hp, atk)
+//    {
+//        exp = 0;
+//    }
+//    // TODO: GainExp(int amount) 함수 만들기
+//    public void GainExp(int amount)
+//    {
+//        exp += amount;
+//    }
+//}
 
-class Player : Character // Character를 상속
-{
-    public int Exp = 0;
+//class Monster : Character // TODO: Character를 상속해서 만드세요
+//{
+//    // TODO: 랜덤 HP(20~50), ATK(2~6) 생성하는 생성자 만들기
+//    public Monster(string name) : base(name, new Random().Next(20, 51), new Random().Next(2, 7))
+//    {
 
-    public Player(string name, int hp, int atk) : base(name, hp, atk) { }
+//    }
+//    public void MonsterDead(Player player)
+//    {
+//        if (this.IsDead)
+//        {
+//            this.hp = 0;
+//            player.GainExp(10);
+//            Console.WriteLine($"{player.name} 공격 -> {this.name} HP : {this.hp}");
+//            Console.WriteLine($"{this.name} 처치! 경험치+10");
+//        }
+//    }
+//}
 
-    public void GainExp(int amount)
-    {
-        Exp += amount;
-    }
-}
+//class Program
+//{
+//    static void Main()
+//    {
+//        // TODO: 플레이어 생성
+//        Player p1 = new Player("용사", 30, 15, 0);
 
-class Monster : Character // Character를 상속
-{
-    static Random _rand = new Random();
+//        //   1) 몬스터 생성
+//        Monster mon1 = new Monster("고블린");
+//        Monster mon2 = new Monster("슬라임");
+//        Console.WriteLine($"몬스터 등장! {mon1.name} (HP {mon1.hp} ATK {mon1.atk})");
+//        // TODO: while문으로 게임 반복
+//        while (!p1.IsDead)
+//        {
 
-    public Monster(string name)
-        : base(name, _rand.Next(20, 51), _rand.Next(2, 7)) { }
-}
+//            while (!mon1.IsDead)
+//            {
 
-class Program
-{
-    static void Main()
-    {
-        Player player = new Player("용사", hp: 35, atk: 8);
-        Console.WriteLine("=== 몬스터 사냥 콘솔 게임 ===");
+//                p1.Attack(mon1);
+//                if (mon1.hp < 0)
+//                {
+//                    mon1.IsDead = true;
+//                    mon1.MonsterDead(p1);
+//                    continue;
+//                }
+//                Console.WriteLine($"{p1.name} 공격 -> {mon1.name} HP : {mon1.hp}");
+//                mon1.Attack(p1);
+//                if (p1.hp < 0)
+//                {
+//                    p1.IsDead = true;
+//                    p1.hp = 0;
+//                    Console.WriteLine($"{p1}이 사망했습니다.");
+//                    return;
+//                }
+//                Console.WriteLine($"{mon1.name} 공격 -> {p1.name} HP : {p1.hp}");
+//            }
+//            Console.Write("계속 싸우시겠습니까? : (y/n)");
+//            string input = Console.ReadLine();
+//            switch (input)
+//            {
+//                case "y":
+//                    {
+//                        Console.WriteLine($"몬스터 등장! {mon2.name} (HP {mon2.hp} ATK {mon2.atk})");
+//                        while (!mon2.IsDead)
+//                        {
+//                            p1.Attack(mon2);
+//                            if (mon2.hp < 0)
+//                            {
+//                                mon2.IsDead = true;
+//                                mon2.MonsterDead(mon2, p1);
+//                                continue;
+//                            }
+//                            Console.WriteLine($"{p1.name} 공격 -> {mon2.name} HP : {mon2.hp}");
+//                            mon2.Attack(p1);
+//                            Console.WriteLine($"{mon2.name} 반격 -> {p1.name} HP : {p1.hp}");
+//                            if (p1.hp < 0)
+//                            {
+//                                p1.IsDead = true;
+//                                p1.hp = 0;
+//                                Console.WriteLine($"{p1}이 사망했습니다.");
+//                                return;
+//                            }
 
-        while (player.Hp > 0) // 게임 반복
-        {
-            Monster m = new Monster(RandomName());
-            Console.WriteLine($"\n몬스터 등장! {m.Name} (HP:{m.Hp}, ATK:{m.Atk})");
 
-            // 전투 시작
-            for (; !player.IsDead() && !m.IsDead();) // <- for문을 while처럼 사용
-            {
-                // 플레이어 공격
-                player.Attack(m);
-                Console.WriteLine($" {player.Name} 공격 → {m.Name} HP:{m.Hp}");
+//                        }
+//                        break;
+//                    }
+//                case "n":
+//                    {
+//                        p1.IsDead = true;
+//                        Console.WriteLine("수고하셨습니다.");
+//                        break;
+//                    }
+//            }
+//        }
 
-                if (m.IsDead()) break; // 승리
-
-                // 몬스터 반격
-                m.Attack(player);
-                Console.WriteLine($" {m.Name} 반격 → {player.Name} HP:{player.Hp}");
-            }
-
-            if (player.IsDead())
-            {
-                Console.WriteLine(" 플레이어가 쓰러졌습니다. 게임 종료!");
-                break;
-            }
-            else
-            {
-                Console.WriteLine($"✅ {m.Name} 처치! 경험치 +10");
-                player.GainExp(10);
-                Console.WriteLine($"현재 EXP: {player.Exp}");
-            }
-
-            Console.Write("계속 싸우시겠습니까? (y/n): ");
-            string input = Console.ReadLine()?.Trim().ToLower();
-            if (input != "y") break;
-        }
-
-        Console.WriteLine("\n수고하셨습니다!");
-    }
-
-    static string RandomName()
-    {
-        string[] names = { "슬라임", "고블린", "늑대", "박쥐" };
-        return names[new Random().Next(names.Length)];
-    }
-}
+//    }
+//    //   2) for문으로 전투 진행 (플레이어 선공 → 몬스터 반격)
+//    //   3) if로 승리/패배 판정
+//    //   4) 승리 시 경험치 +10
+//    //   5) 계속할지 입력 받기
+//}

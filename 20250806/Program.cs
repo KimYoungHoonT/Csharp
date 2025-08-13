@@ -1,125 +1,81 @@
-﻿
-//문제1.
-//class A
-//{
-//    public void Act() { Console.WriteLine("A.Act"); }
-//}
+﻿// 접근지정자(접근제한자)
+// public, protected, private
 
-//class B : A
-//{
-//    public void Act(int x) // (L1) ← 시그니처 다름 (override 아님, 오버로드)
-//    {
-//        Console.WriteLine($"B.Act({x})");
-//    }
-//}
+// public - 가장 개방적인 형태
+// private - 가장 비개방적인(안전한) 형태
+// protected - 상속받은 애들만 가능
 
-//----메인함수-- -
-//A obj = new B();
-//obj.Act();        // 무엇이 출력될까?
-//// obj.Act(10);   // 이 줄을 주석 해제하면 컴파일 가능한가? 안되면 왜 안되는지?
+// 은닉성 개념의 캡술화
+// 기능 + 데이터를 묶는 개념의 캡슐화 -> 중요하지 않다
+// 목적: 관련된 데이터와 그 데이터를 다루는 메서드를 한 클래스 안에 묶어서 하나의 “기능 단위”로 만들기
 
+// 캡슐화 (은닉성)
+// 보안레벨 == 은닉성
 
-//문제2.
-//class A
-//{
-//    public A(string name) { Console.WriteLine($"A:{name}"); }
-//}
+// 자동차
+//  ㄴ> 핸들조작, 페달 조작, 차문 조작
+//    ㄴ> 전기장치, 엔진, 연료분사장치 
 
-//class B : A
-//{
-//    public B() : A()
-//    {
-//        Console.WriteLine("B");
-//    }
-//}
+class Player
+{
+    private int hp = 100;
 
-//----메인함수-- -
-//A a = new B(); // 컴파일 가능한가?
+    public void TakeDamage(int amount)
+    {
+        hp -= amount;
+        if (hp < 0) hp = 0;
+    }
 
+    public void Heal(int amount)
+    {
+        hp += amount;
+        if (hp > 100) hp = 100;
+    }
 
+    public int GetHp() => hp;
+}
 
-//문제3.
-//class A
-//{
-//    public void Hello() { Console.WriteLine("A.Hello"); }
-//}
+class Knight : Player
+{
+    public static int count = 0;
+    public int id;
 
-//class B : A
-//{
-//    public override void Hello()
-//    {
-//        Console.WriteLine("B.Hello");
-//    }
-//}
+    public Knight()
+    {
+        hp = 10;
+        id = count++;
+    }
 
-//----메인함수-- -
-//new B().Hello(); // 컴파일 가능?
+    public void SecretFunction()
+    {
+        // 굉장히 중요한 기능
+        // 타이밍이 중요
+    }
+}
 
+class SuperKnight  : Knight
+{
+    public SuperKnight()
+    {
+        hp = 10;
+        id = count++;
+    }
+}
 
+class Program
+{
+    static void Main()
+    {
+        Knight knight = new Knight();
+        knight.hp = 0;
 
-//문제4.
-//class A
-//{
-//    public virtual void Go() { Console.WriteLine("A"); }
-//}
+        Knight.count = 10;
 
-//class B : A
-//{
-//    public virtual void Go() { Console.WriteLine("B"); }
-//}
+        knight.SecretFunction();
 
-//----메인함수-- -
-//new B().Go(); // 출력결과는?
+        Console.Clear();
 
+        
+    }
+}
 
-//문제5.
-//class Player
-//{
-//    public virtual void Attack()
-//    {
-//        Console.WriteLine("Player.Attack");
-//    }
-//}
-
-//class Knight : Player
-//{
-//    public override void Attack()
-//    {
-//        Console.WriteLine("Knight.Attack");
-//    }
-//}
-//class Mage : Player
-//{
-//    public void Cast()
-//    {
-//        Console.WriteLine("Mage.Cast");
-//    }
-//}
-
-//class Program
-//{
-//    static void Main()
-//    {
-//        Player p = new Knight();
-//        Mage m = p as Mage;
-//        Console.WriteLine(m == null ? "NULL" : "NOT NULL");
-//        m.Cast();
-//    }
-//}
-//// 출력 결과는?
-//// 문제 없이 돌아가나?
-
-
-
-//class Program
-//{
-//    static void Main()
-//    {
-//        int o1 = 5;
-//        int i1 = o1 is int;      // 결과는?
-//        int i2 = o1 as int;    // 결과는?
-
-
-//        Console.WriteLine(i2.HasValue ? i2.Value.ToString() : "null");
-//    }
-//}
