@@ -1,66 +1,64 @@
-﻿//namespace TextRPG
+﻿//using System.Runtime.CompilerServices;
+//using System.Security.Cryptography;
+
+//namespace TextRPG
 //{
-//    enum CreatureType
+//    public enum CreatureType
 //    {
-//        None,
-//        Player,
-//        Monster
+//        None, Player, Monster
 //    }
+
 
 //    class Creature
 //    {
-//        CreatureType creatureType;
+//        protected CreatureType creatureType;
 //        protected int hp = 0;
 //        protected int atk = 0;
-
 //        protected Creature(CreatureType creatureType)
 //        {
 //            this.creatureType = creatureType;
 //        }
-
 //        public void SetStat(int hp, int atk)
 //        {
 //            this.hp = hp;
 //            this.atk = atk;
 //        }
-
 //        public int GetHp() { return hp; }
 //        public int GetAtk() { return atk; }
-
-//        public bool IsDead() { return hp <= 0; }
+//        public bool IsDead()
+//        {
+//            return hp <= 0;
+//        }
 //        public void OnDamaged(int damage)
 //        {
 //            hp -= damage;
-//            if (hp < 0)
+//            if (hp <= 0)
 //                hp = 0;
 //        }
 //    }
+
 //    public enum PlayerType
 //    {
-//        None,
-//        Knight,
-//        Archer,
-//        Mage,
+//        None, Knight, Archer, Mage
 //    }
 
 //    class Player : Creature
 //    {
 //        protected PlayerType playerType = PlayerType.None;
-
 //        protected Player(PlayerType playerType) : base(CreatureType.Player)
 //        {
 //            this.playerType = playerType;
 //        }
 //    }
 
+
 //    class Knight : Player
 //    {
 //        public Knight() : base(PlayerType.Knight)
 //        {
-//            SetStat(100, 10);
+//            SetStat(10, 10);
 //        }
 //    }
-
 //    class Archer : Player
 //    {
 //        public Archer() : base(PlayerType.Archer)
@@ -68,7 +66,6 @@
 //            SetStat(75, 12);
 //        }
 //    }
-
 //    class Mage : Player
 //    {
 //        public Mage() : base(PlayerType.Mage)
@@ -77,24 +74,25 @@
 //        }
 //    }
 
-//    enum MonsterType
+//    public enum MonsterType
 //    {
-//        None,
-//        Slime,
-//        Orc,
-//        Skeleton
+//        None, Slime, Orc, Skeleton
 //    }
 
 //    class Monster : Creature
 //    {
 //        protected MonsterType type = MonsterType.None;
-
-//        protected Monster(MonsterType type) : base(CreatureType.Monster)
+//        public Monster(MonsterType monsterType) : base(CreatureType.Monster)
 //        {
-//            this.type = type;
+//            this.type = monsterType;
 //        }
 
-//        public MonsterType GetMonsterType() { return type; }
+
+//        public MonsterType GetMonsterType()
+//        {
+//            return type;
+//        }
+
 //    }
 
 //    class Slime : Monster
@@ -104,7 +102,6 @@
 //            SetStat(10, 1);
 //        }
 //    }
-
 //    class Orc : Monster
 //    {
 //        public Orc() : base(MonsterType.Orc)
@@ -112,7 +109,6 @@
 //            SetStat(20, 2);
 //        }
 //    }
-
 //    class Skeleton : Monster
 //    {
 //        public Skeleton() : base(MonsterType.Skeleton)
@@ -120,6 +116,7 @@
 //            SetStat(15, 5);
 //        }
 //    }
+
 //    public enum GameMode
 //    {
 //        Lobby,
@@ -130,10 +127,9 @@
 //    class Game
 //    {
 //        private GameMode mode = GameMode.Lobby;
-//        private Player player = null;
-//        private Monster monster = null;
+//        private Player player;
+//        private Monster monster;
 //        private Random rand = new Random();
-
 //        public void Process()
 //        {
 //            switch (mode)
@@ -152,10 +148,10 @@
 
 //        private void ProcessLobby()
 //        {
-//            Console.WriteLine("직업을 선택하세요");
-//            Console.WriteLine("[1] 기사");
-//            Console.WriteLine("[2] 궁수");
-//            Console.WriteLine("[3] 법사");
+//            Console.WriteLine("직업 선택좀");
+//            Console.WriteLine("1 기사");
+//            Console.WriteLine("2 궁수");
+//            Console.WriteLine("3 법사");
 
 //            string input = Console.ReadLine();
 
@@ -204,7 +200,7 @@
 //            CreateRandomMonster();
 
 //            string input = Console.ReadLine();
-//            switch (input)
+//            switch(input)
 //            {
 //                case "1":
 //                    ProcessFight();
@@ -216,26 +212,20 @@
 //                    Console.WriteLine("잘못된 입력입니다. 다시 선택하세요.");
 //                    break;
 //            }
-
 //        }
 
-//        private void CreateRandomMonster()
+//        private void TryEscape()
 //        {
-//            int randValue = rand.Next(0, 3);
-//            switch (randValue)
+//            int val = rand.Next(0, 100);
+//            if (val < 33)
 //            {
-//                case 0:
-//                    monster = new Slime();
-//                    Console.WriteLine("슬라임이 생성되었습니다.");
-//                    break;
-//                case 1:
-//                    monster = new Orc();
-//                    Console.WriteLine("오크가 생성되었습니다.");
-//                    break;
-//                case 2:
-//                    monster = new Skeleton();
-//                    Console.WriteLine("스켈레톤이 생성되었습니다.");
-//                    break;
+//                Console.WriteLine("탈주 성공");
+//                mode = GameMode.Town;
+//            }
+//            else
+//            {
+//                Console.WriteLine("도망실패");
+//                ProcessFight();
 //            }
 //        }
 
@@ -263,21 +253,29 @@
 //            }
 //        }
 
-//        private void TryEscape()
+//        private void CreateRandomMonster()
 //        {
-//            int value = rand.Next(0, 100);
-//            if (value < 33)
+//            int randValue = rand.Next(0, 3);
+//            switch(randValue)
 //            {
-//                Console.WriteLine("도망에 성공했습니다! 마을로 돌아갑니다.");
-//                mode = GameMode.Town;
-//            }
-//            else
-//            {
-//                Console.WriteLine("도망에 실패했습니다! 전투를 시작합니다.");
-//                ProcessFight();
+//                case 0:
+//                    monster = new Slime();
+//                    Console.WriteLine("슬라임 생성");
+//                    break;
+//                case 1:
+//                    monster = new Orc();
+//                    Console.WriteLine("오크 생성");
+//                    break;
+//                case 2:
+//                    monster = new Skeleton();
+//                    Console.WriteLine("스켈레톤 생성");
+//                    break;
 //            }
 //        }
+
 //    }
+
+
 //    class Program
 //    {
 //        static void Main()
