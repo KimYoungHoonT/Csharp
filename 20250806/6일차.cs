@@ -37,7 +37,7 @@
 ////    public int atk;
 
 ////    // 기본생성자
-////    //public Knight()
+////    //public  Knight()
 ////    //{
 ////    //    Knight 타입의 객체를 힙에 생성
 ////    //    힙 메모리

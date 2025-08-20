@@ -5,7 +5,6 @@ namespace TRPG
     // TODO : PlayerType 이라는 이넘을 만들어주세요.
     //  > 이넘안에 None, Knight, Archer, Mage 를 0,1,2,3 값을 갖도록 만들어주세요.
 
-
     // TODO : 플레이어 클래스를 만들어 주세요.
     //  > PlayerType 타입의 멤버변수를 playerType 만들고 기본값으로 None 을 대입해주세요.
     //  > int 타입의 멤버변수를 hp 만들고 0 을 대입해주세요.
