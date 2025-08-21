@@ -180,6 +180,8 @@
 //////            p2 = p1;
 //////            p2.x = 5;
 //////            p2.y = 6;
+           
+
 
 //////            Console.WriteLine($"{p1.x} {p1.y}\n{p2.x} {p2.y}");
 //////        }
@@ -256,7 +258,6 @@
 
 
 ////// 깊은 복사 (Deep copy)
-
 //////class Knight
 //////{
 //////    public int hp;

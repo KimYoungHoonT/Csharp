@@ -30,7 +30,7 @@
 
 //////class Player
 //////{
-//////    private int a;
+//////    protected int hp;
 
 //////    public void TakeDamage(int amount)
 //////    {
@@ -51,6 +51,8 @@
 //////{
 
 //////    private int hp = 100;
+///       public int GetHP() { return hp; }
+///
 //////    public static int count = 0;
 //////    public int id;
 
@@ -71,7 +73,7 @@
 //////{
 //////    public SuperKnight()
 //////    {
-//////        hp = 10;
+//////        // hp = 10; X
 //////        id = count++;
 //////    }
 //////}
@@ -81,7 +83,7 @@
 //////    static void Main()
 //////    {
 //////        Knight knight = new Knight();
-//////        knight.hp = 0;
+//////        knight.GetHP();
 
 //////        Knight.count = 10;
 
@@ -149,7 +151,7 @@
 //////    public int hp;
 //////    public int mp;
 
-//////    public virture  void Move()
+//////    public virture void Move()
 //////    {
 //////        Console.WriteLine("플레이어 이동!");
 //////    }
@@ -157,8 +159,9 @@
 
 //////class Knight : Player
 //////{
-//////    public override void Move()
+//        public  override void Move()
 //////    {
+///            base.Move();
 //////        Console.WriteLine("플레이어 이동!");
 //////    }
 //////}
@@ -168,8 +171,8 @@
 
 //////}
 
-//////// 오버로딩 : 함수 이름 재사용
-//////// 오버라이딩 : 부모 메서드 재정의
+// 오버로딩 : 함수 이름 재사용
+// 오버라이딩 : 부모 메서드 재정의
 
 //////class Mage : Player
 //////{

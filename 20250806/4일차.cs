@@ -81,7 +81,7 @@
 //////    {
 //////        enum ClassType  <- 정수형식  
 //////        {
-//////            None = 8,
+//////            None = 9,
 //////            Knight,
 //////            Mage = 5,
 //////            Rogue
@@ -91,6 +91,8 @@
 //////        {
 //////            public int hp;
 //////            public int atk;
+///
+///               void Test() {  } 
 //////        }
 
 //////        static ClassType ClassChoice()

@@ -37,7 +37,7 @@
 //////    public int atk;
 
 //////    // 기본생성자
-//////    //public  Knight()
+//////    //public Knight()
 //////    //{
 //////    //    Knight 타입의 객체를 힙에 생성
 //////    //    힙 메모리
@@ -68,7 +68,7 @@
 //////    static void Main(string[] args)
 //////    {
 //////        // 매개변수가 있는 생성자 호출
-//////        Knight strongKnight = new Knight(200, 10);
+//////        Knight strongKnight = new Knight();
 
 //////        Console.WriteLine($"강한 기사: HP {strongKnight.hp}, ATK {strongKnight.atk}");
 
@@ -320,7 +320,7 @@
 //        }
 //    }
 //}
- 
+
 // */
 
 ///*
@@ -388,7 +388,7 @@
 //        {
 //            Knight knight = new Knight();
 //            knight.Attack(10);
-            
+
 //        }
 //    }
 //}
@@ -487,13 +487,14 @@
 //    {
 //        // 공통으로 사용하는 변수
 //        // 왜 공통으로 사용하냐 
-//        static public int count = 0; 
+//        static privte int count = 0; 
 
 //        public int hp;
-//        public int id;
+//        public int id 
 
 //        public Knight()
 //        {
+//            id = count;
 //            count++;
 //        }
 //    }
@@ -510,6 +511,7 @@
 
 //            Console.WriteLine("기능!");
 //        }
+
 //    }
 
 //    class Program
@@ -517,7 +519,7 @@
 //        static void Main(string[] args)
 //        {
 //            // 객체에 종속
-//            Util util = new Util();
+//            
 //            Util.Test();
 
 //            Knight knight1 = new Knight();

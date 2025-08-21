@@ -61,6 +61,12 @@
 ////            int a = 1;
 ////            int b = 99;
 ////            string s = string.Format("엄마가 오이를 {0} ~ {0}개 사오라고 했는데 몇개지?", a, b);
+///
+///   //        "int hp = 100;
+////            //int monsterAttack = 99;
+////            //hp = hp - monsterAttack;
+////            //hp -= monsterAttack;"
+///     
 ////            Console.WriteLine(s);
 
 ////            // 스트링인터폴레이션 이용 방법 
@@ -100,7 +106,7 @@
 ////            // < <= > >= == !=   
 ////            int hp = 100;
 ////            int monsterAttack = 101;
-////            hp -= monsterAttack;
+////            hp -= monsterAttack; //-1
 ////            bool isAlive = (hp > 0);
 ////            Console.WriteLine(isAlive);
 
@@ -112,20 +118,21 @@
 ////            // 게임 아이템이 착용레벨이 50 이상 이고 힘 수치가 15 이상 일때 <- 다중조건
 ////            // &&논리곱AND ||논리합OR !논리부정NOT
 
-////            // && (AND) : 두 조건이 모 두 만족(true)할때 참을 반환합니다.
-////            //bool hasRequiredLevel = false;
+////            // && (AND) : 비교하는 모든 조건이 모 두 만족(true)할때 참을 반환합니다.
+////            //bool hasRequiredLevel = true;
 ////            //bool hasRequiredStr = true;
+//                bool hasRequiredStr = true;
 
-////            //bool isRequired = hasRequiredLevel && hasRequiredStr; // <- false 
+////            //bool isRequired = hasRequiredLevel && hasRequiredStr && hasRequiredStr;  // <- false 
 
-////            // || (OR) : 두 조건중 하나라도 만족(true) 할때 참을 반환합니다. 
+////            // || (OR) : 모든 조건중 하나라도 만족(true) 할때 참을 반환합니다. 
 ////            //bool hasRequiredLevel = true;
 ////            //bool hasRequiredStrength = false;
 ////            //bool isRequired = hasRequiredLevel || hasRequiredStrength; // <- true
 
 ////            // ! (NOT) : 논리연산 대상이 참이면 거짓, 거짓이면 참 반환
 ////            //bool isAlive = false;
-////            ////isAlive = true;
+////            //isAlive = true;
 ////            //isAlive = !isAlive;
 ////            //// 만약에 어떠한 조건이 참이면
 ////            //{

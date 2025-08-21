@@ -1,11 +1,17 @@
-﻿//using System.Runtime.CompilerServices;
-//using System.Security.Cryptography;
-
-//namespace TextRPG
+﻿//namespace TextRPG
 //{
+
+
+
 //    public enum CreatureType
 //    {
 //        None, Player, Monster
+//    }
+//
+//    void Tetst()
+//    {
+//         // damage
+//         hp - monsterAtk;
 //    }
 
 
@@ -281,7 +287,10 @@
 //        static void Main()
 //        {
 //            Game game = new Game();
-//            while (true) { game.Process(); }
+//            while (true)
+//            {
+//                  game.Process();
+//            }
 //        }
 //    }
 //}

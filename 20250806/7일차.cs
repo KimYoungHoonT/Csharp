@@ -237,7 +237,7 @@
 
 //    class Knight : Player
 //    {
-//        public Knight(int hp) : base(hp)
+//        public Knight() : base(hp)
 //        {
 //            Console.WriteLine($"HP: {hp}");
 //        }

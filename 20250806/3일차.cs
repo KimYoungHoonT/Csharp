@@ -70,7 +70,8 @@
 ////            // 컴퓨터의 선택 출력
 ////            int input = int.Parse(Console.ReadLine());
 
-////            switch (comChoice)
+// int, string, enum
+////            switch (comChoice) 
 ////            {
 ////                case 1:
 ////                    Console.WriteLine("컴퓨터는 가위를 냈습니다.");
@@ -144,6 +145,10 @@
 ////{
 ////   int b = 10;
 ////}
+///
+/// {
+///     int b = 10;
+/// }
 ////a = 10;
 
 ////int i = 0;
@@ -161,7 +166,7 @@
 ////*/
 
 
-////for (int j = 5; true ; j--) // 조건이 비워져있으면 true
+////for (int j = 5; true ; --j) // 조건이 비워져있으면 true
 ////{
 ////    Console.WriteLine("Hello world");
 ////}
@@ -181,12 +186,11 @@
 //// 함수가 실행되면 스택메모리 메모리가 잡힙
 //// 스택 메모리 99  + 1 함수가 끝나면 사라진다
 
-//void Test(int a)
+//int Test(int a, int b)
 //{
-
 //}
 
-//Test(10);
+//Test(10, 10);
 
 /////*
 //// [Stack 메모리]
@@ -217,9 +221,9 @@
 
 
 ////        // ref 써서 만들어 보세요.
-////        static void Swap(int , int y)
+////        static void Swap(ref int x , out int y)
 ////        {
-////            int temp = x;
+////            int temp = x = 99;
 ////            x = y;
 ////            y = temp;
 ////        }
@@ -231,6 +235,7 @@
 ////            int y = 1;
 
 ////            Swap(ref x, out y);
+///
 ////            Console.WriteLine(x); // 1
 ////            Console.WriteLine(y); // 99
 ////        }
@@ -248,10 +253,10 @@
 //////{
 
 //////                             [ref] [out] [일반매개변수(값형식)]
-////// 주소공유 방식?              [ O ] [ O ] [ 값 전달(복사)]
-////// 함수 안에서 읽기 가능?      [ O ] [ X ] [ O ]
-////// 함수 호출전 반드시 초기화?  [ O ] [ X ] [ O ]
-////// 함수 내에서 반드시 값쓰기?  [ x ] [ O ] [ x ]
+////// 주소공유 방식?               [ O ] [ O ] [ 값 전달(복사)]
+////// 함수 안에서 읽기 가능?        [ O ] [ X ] [ O ]
+////// 함수 호출전 반드시 초기화?    [ O ] [ X ] [ O ]
+////// 함수 내에서 반드시 값쓰기?    [ x ] [ O ] [ x ]
 
 //////    //out - 보통 다중 반환할떄 사용한다.
 //////    static void OpenSRankBox(out int gold, out int exp, out string item, ref int a, int b)
