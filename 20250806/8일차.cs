@@ -30,7 +30,7 @@
 
 //////class Player
 //////{
-//////    protected int hp;
+//////    private int hp;
 
 //////    public void TakeDamage(int amount)
 //////    {
@@ -159,7 +159,7 @@
 
 //////class Knight : Player
 //////{
-//        public  override void Move()
+//        public override void Move()
 //////    {
 ///            base.Move();
 //////        Console.WriteLine("플레이어 이동!");
@@ -204,12 +204,12 @@
 
 //////[스택]
 //////[힙]
-//////player ────────────────▶  ┌───────-----┐
+//////player ────────────────▶  ┌───────────────────┐
 ////// (Player 타입 참조변수)     │ Knight 객체(실체) │
 //////                           │--------------     │
 //////                           │  Player.Move()    │  ← A에서 상속받은 메서드
 //////                           │  Knight.Move()    │  ← B에서 새로 정의한 메서드
-//////                           └──────-----─┘
+//////                           └───────────────────┘
 
 //////class Player
 //////{
@@ -316,22 +316,3 @@
 ////    // 프로퍼티에도 가능
 ////    public string Status => hp > 0 ? "Alive" : "Dead";
 ////}
-
-
-////public class UIManager
-////{
-////    public Button startButton;
-
-////    void Start()
-////    {
-////        // 람다식: 매개변수 없음, 한 줄 실행
-////        startButton.onClick.AddListener(() => Debug.Log("게임 시작!"));
-
-////        // 람다식: 매개변수 있음
-////        System.Action<string> showMsg = msg => Debug.Log("메시지: " + msg);
-////        showMsg("Hello Unity");
-////    }
-////}
-
-////// 화살표 함수 => 이미만들어져있는 이름 있는 함수를 간편하게 사용할떄
-////// 람다 함수 => 이름 없이 함수를 만들어 쓰고싶을때 

@@ -281,7 +281,7 @@
 //             */
 
 //            // 데이터타입[,] = new 타입[행, 열]
-//            int[,] map = new int[10, 10];
+//            int[,,] map = new int[10, 10];
 //            // map[행, 열] = 값;
 //            map[0, 0] = 1;
 //            map[0, 1] = 2;
@@ -354,7 +354,7 @@
 //            {
 //                for (int 열 = 0; 열 < n; 열++)
 //                {
-//                    t[열, 행] = a[행, 열];
+//                    t[1, 0] = a[0, 1];
 //                }
 //            }
 
@@ -422,11 +422,12 @@
 
 //            //1) 데이터 추가
 //            numbers.Add(10); // numbers[0] → 10
-//            numbers.Add(10); // numbers[0] → 10
-//            numbers.Add(10); // numbers[0] → 10
-//            numbers.Add(10); // numbers[0] → 10
-//            numbers.Add(20); // numbers[1] → 20
-//                             // numbers[2] → 25
+//            numbers.Add(10); // numbers[1] → 10
+//            numbers.Add(10); // numbers[2] → 10
+
+//            numbers.Add(10); // numbers[4] → 10
+//            numbers.Add(20); // numbers[5] → 20
+//                             // numbers[6] → 25
 //            numbers.Add(30); // numbers[3] → 30
 
 //            numbers.Insert(2, 25); // 1번 인덱스에 25 삽입
@@ -524,9 +525,16 @@
 
 //            Monster monster1 = dic[1];
 //            // Monster monster2 = dic[2]; // 해당하는 키가 없으면 에러 발생
-//            Monster monster2;
-//            bool success = dic.TryGetValue(1, out monster2);
-
+//class Monster
+//{
+//    void Test()
+//    {
+        
+//        bool success = dic.TryGetValue(1, out Monster monster2);
+//        monster2.Test();
+//    }
+//}
+           
 //            bool success2 = dic.Remove(1);
 //            // 키값을 넣어주면 해당하는 엘리먼트를 삭제한다
 //            // 그리고 삭제에 성공하면 true, 벨류값을 반환

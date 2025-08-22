@@ -15,6 +15,7 @@
 //// string -> 문자열 데이터 형식
 //// 기본형식과는 좀 다름 -> int, float
 //// Console.WriteLine("안녕하셈");
+///  string s = "아 덥다";
 
 //// char -> 문자 담는 데이터 형식
 ////  'a', 'b'
@@ -23,7 +24,7 @@
 //// bool -> 참과 거짓을 담는 데이터 형식
 //// bool isAlive = false; true;
 
-//// 캐스팅 -> 형식 변환 
+//// 캐스팅 -> 형식 변환
 
 //// 형식 변환의 종류
 //// 명식적 형변환, 암시적 형변환 이라는게 있습니다.
@@ -120,7 +121,7 @@
 
 ////            // && (AND) : 비교하는 모든 조건이 모 두 만족(true)할때 참을 반환합니다.
 ////            //bool hasRequiredLevel = true;
-////            //bool hasRequiredStr = true;
+////            //bool hasRequiredStr = false;
 //                bool hasRequiredStr = true;
 
 ////            //bool isRequired = hasRequiredLevel && hasRequiredStr && hasRequiredStr;  // <- false 

@@ -1,8 +1,5 @@
 ﻿//namespace TextRPG
 //{
-
-
-
 //    public enum CreatureType
 //    {
 //        None, Player, Monster
@@ -136,6 +133,7 @@
 //        private Player player;
 //        private Monster monster;
 //        private Random rand = new Random();
+//
 //        public void Process()
 //        {
 //            switch (mode)

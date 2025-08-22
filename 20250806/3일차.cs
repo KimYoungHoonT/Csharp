@@ -70,7 +70,7 @@
 ////            // 컴퓨터의 선택 출력
 ////            int input = int.Parse(Console.ReadLine());
 
-// int, string, enum
+////            int, string, enum
 ////            switch (comChoice) 
 ////            {
 ////                case 1:
@@ -131,7 +131,9 @@
 ////{
 ////    Console.WriteLine("Hello World");
 ////    count -= 1;
-////    break;
+////    // break;
+///     continu;
+///     Console.WriteLine("Hello World");
 ////}
 
 ////do
@@ -142,10 +144,12 @@
 //// 스코프는 범위를 찝어 주는거다.
 ////int a = 10;
 
+//// int a = 0;
 ////{
 ////   int b = 10;
+///     a += b;
 ////}
-///
+/// 
 /// {
 ///     int b = 10;
 /// }
@@ -159,14 +163,14 @@
 ////}
 
 /////*
-////    for (int i = 0; i < 10; ++i)
+////    for (int i = 0; true ; ++i)
 ////    {
 ////        반복할 코드
 ////    } 
 ////*/
 
 
-////for (int j = 5; true ; --j) // 조건이 비워져있으면 true
+////for (int j = 5; true ; j--) // 조건이 비워져있으면 true
 ////{
 ////    Console.WriteLine("Hello world");
 ////}
@@ -195,7 +199,7 @@
 /////*
 //// [Stack 메모리]
 ////┌─────────────┐
-////│ Test() 프레임 │ ← Test 함수 안에서 만든 a 복사본
+////│ Test() 프레임 │ ← Test 함수 안에서 만든 a, b 복사본
 ////├─────────────┤
 ////│ Main() 프레임│ ← Main 함수의 a (원본)
 ////└─────────────┘
