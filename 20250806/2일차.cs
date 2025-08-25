@@ -61,7 +61,7 @@
 ////            // 자리 표시자 이용 방법
 ////            int a = 1;
 ////            int b = 99;
-////            string s = string.Format("엄마가 오이를 {0} ~ {0}개 사오라고 했는데 몇개지?", a, b);
+////            string s = string.Format("엄마가 오이를 {0} ~ {1}개 사오라고 했는데 몇개지?", 10, b);
 ///
 ///   //        "int hp = 100;
 ////            //int monsterAttack = 99;

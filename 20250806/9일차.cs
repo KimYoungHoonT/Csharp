@@ -134,6 +134,7 @@
 //        private Monster monster;
 //        private Random rand = new Random();
 //
+//        상태 패턴 (State Pattern)
 //        public void Process()
 //        {
 //            switch (mode)

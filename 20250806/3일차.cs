@@ -70,6 +70,7 @@
 ////            // 컴퓨터의 선택 출력
 ////            int input = int.Parse(Console.ReadLine());
 
+
 ////            int, string, enum
 ////            switch (comChoice) 
 ////            {
@@ -127,11 +128,12 @@
 
 ////int count = 5;
 
-////while (count > 0)
+////while (true)
 ////{
 ////    Console.WriteLine("Hello World");
 ////    count -= 1;
-////    // break;
+////    
+///     // break;
 ///     continu;
 ///     Console.WriteLine("Hello World");
 ////}
@@ -192,9 +194,10 @@
 
 //int Test(int a, int b)
 //{
+        
 //}
 
-//Test(10, 10);
+// Test(10, 10);
 
 /////*
 //// [Stack 메모리]
