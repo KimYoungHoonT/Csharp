@@ -1,72 +1,49 @@
 ﻿//namespace Delegate
 //{
 //    // delegate = 대리자
-//    // 콜백을 가능하게 해주는 도구
-//    // 함수 자체를 인자로 넘겨주는 방식
+//    // 함수 자체를 인자로 넘겨주는 방식이 가능하게 함
+//    // 즉, 함수를 타입화 시켜줌 -> int 라는 타입 = 정수형식을 int 라는 이름으로 부름
+//    // delegate void OnClicked() 라는 애는 void를 반환하고 매개변수가 없는 타입을 OnClicked 라고 부르겠다는것
 
-//    // 퀵서비스 
-//       // 연락처 넘김
-//    // 도착하면 연락함
+//    // Event 
+//    // delegate의 아무대서 호출되는 부분을 랩핑을 통해서 아무대서나 호출되지 않게 막는것
 
-//    // 함수를 매게변수로 넘겨주는 방식
+//    // Action 
+//    // void 반환 즉 아무것도 반환하지 않는 델리게이트에 대해서 C#에서 미리 선언해둔것
+//    // delegate void Test();   => Action action;
 
-//class Program
-//{
-//    // delegate -> 형식은 형식인데, 함수 자체를 인자로 넘겨주는 형식
-//    // 반환 : int , 입력 : void
-//    // OnClicked 이 delegate 형식의 이름
-//    delegate int OnClick();
-//    delegate void OnClick2();
+//    // Func 
+//    // void가 아닌 반환이 존재하는 델리게이트에 대해서 C#에서 미리 선언해둔것
+//    // delegate int Test();  => Func<int> func;
 
-//    // UI - Button button;
-//    // button.onClick.AddListener( )
-
-//    // int = 정수 형식
-//    // OnClick = 인트 반환하고 매개변수 안받는 형식
-
-//    // [ 60, 30, 20, 10, 40, 50 ]
-
-//    //  static List<int> Sort(/*비교하는함수 비교*/)
-//    //  {
-//    //      // 어떠한 행동
-//    //      결과값 = /*비교*/
-//    //// 어떠한 행동
-//    //      return 결과값;
-//    //  }
-
-//    static void ButtonEvent(OnClick onClick)
+//    class A
 //    {
-//        // UI 로직
+//        public delegate int delegate1();
+//        public event delegate1 eventDelegate;
 
-//        /*함수 받음*/
-//        onClick.Invoke();
+//        public void Test()
+//        {
+//            eventDelegate.Invoke();
+//        }
+
 //    }
 
-//    static int Test()
+//    class Program
 //    {
-//        Console.WriteLine("이건 넘겨주는 함수야");
-//        return 0;
-//    }
+//        static int Test()
+//        {
+//            return 0;
+//        }
 
-//    static int Test2()
-//    {
-//        Console.WriteLine("이건 넘겨주는 2번째 함수야");
-//        return 0;
-//    }
+//        static void Main()
+//        {
+//            A a = new A();
+//            a.eventDelegate += Test;
 
-//    static void Attack()
-//    {
-//        // 플레이어 공격
-//        // 점프
-//        // 화장실 가기
-//    }
+//            // a.eventDelegate();        X <- 이벤트로 랩핑 해놓으면 델리게이트 선언부에서만 호출 가능
+//            // a.eventDelegate.Invoke(); X <- 이벤트로 랩핑 해놓으면 델리게이트 선언부에서만 호출 가능
 
-//    static void Main()
-//    {
-//        OnClick onClick = new OnClick(Test);
-//        onClick += Test2;
-
-//        ButtonEvent(onClick);
+//        }
 //    }
 //}
 
@@ -206,35 +183,127 @@
 // 매개변수를 최대 16개까지 받을수 있다.
 // 외부에서도 이 액션에 대해서 Invoke를 통해서 호출해줄수 있다.
 
-class InputManager
-{
-    public Action<int, int> Action;
+//class Player
+//{
 
-    public void Update()
-    {
-        Action.Invoke(10, 20);
-    }
-}
+//}
 
-class Program
-{
-    static void Test(int a, int b)
-    {
-        Console.WriteLine("C# 은 너무나 행복하고 즐겁다! 웃음이 절로난다 하하하");
-    }
+//class Mage : Player
+//{
+//    public void Attack()
+//    {
 
-    static void Main()
-    {
-        InputManager inputManager = new InputManager();
-        inputManager.Action += Test;
+//    }
+//}
 
-        inputManager.Action.Invoke(10, 20);
+//class Knight : Player 
+//{ 
 
-        // inputManager.InputKey.Invoke();
+//}
 
-        while (true)
-        {
-            inputManager.Update();
-        }
-    }
-}
+//class TestException : Exception
+//{
+
+//}
+
+//class Program
+//{
+
+
+//    static void Main()
+//    {
+//        //int[] arr = new int[1];
+
+//        //int a = 10;
+//        //int b = a / 0;
+
+//        try
+//        {
+//            Player p = new Knight();
+//            Mage m = (Mage)p;
+//            m.Attack();
+//        }
+//        catch (Exception e)
+//        {
+
+//        }
+
+//    }
+//}
+
+
+// delegate 핵심은 = 함수의 타입화
+
+//class Program
+//{
+//    // lambda = 일회용 함수 만드는 방법
+//    delegate void On();
+
+//    // 반환값이 없는 미리 만들어둔 델리게이트
+//    Action action;
+
+//    // 반환값이 있는 미리 만들어둔 델리게이트
+//    Func<int, int> func;
+
+//    public class Item
+//    {
+//        public enum ItemType
+//        {
+//            Weapon,
+//            Armor,
+//            Amulet,
+//            Ring
+//        }
+
+//        public enum Rariry
+//        {
+//            Normal,
+//            Uncommon,
+//            Rare
+//        }
+
+//        public ItemType itemType;
+//        public Rariry rariry;
+//    }
+
+//    public static List<Item> _items = new List<Item>();
+//    delegate bool ItemSelector(Item item);
+
+//    static Item FindItem(ItemSelector selector)
+//    {
+//        foreach (Item item in _items)
+//        {
+//            if (selector(item))
+//                return item;
+//        }
+//        return null;
+//    }
+
+//    // 식 본문 멤버(Expression-bodied member)
+//    // public void Test() => Console.WriteLine("");
+
+//    // 람다연산자, 람다 오퍼레이터
+//    // FindItem((Item item) => item.itemType == ItemType.Weapon );
+
+//    // delegate를 직접 선언하지 않아도, 이미 다 만들어놨음
+//    //  -> 반환타입이 있는경우 : Func
+//    //  -> 반환타입이 없는경우 : Action
+
+//    //static void Main()
+//    //{
+//    //    _items.Add(new Item() { itemType = Item.ItemType.Weapon, rariry = Item.Rariry.Normal });
+//    //    _items.Add(new Item() { itemType = Item.ItemType.Armor, rariry = Item.Rariry.Uncommon });
+//    //    _items.Add(new Item() { itemType = Item.ItemType.Ring, rariry = Item.Rariry.Rare });
+
+
+//    //    Item weapon = FindItem(delegate (Item item)
+//    //    {
+//    //        return item.itemType == ItemType.Weapon;
+//    //    }
+//    //    );
+//    //    Item armor = FindItem(delegate (Item item) { return item.itemType == ItemType.Armor; });
+//    //    Item ring = FindItem(delegate (Item item) { return item.itemType == ItemType.Ring; });
+
+//    //    FindItem((Item item) => item.itemType == ItemType.Weapon);
+//    //}
+//}
