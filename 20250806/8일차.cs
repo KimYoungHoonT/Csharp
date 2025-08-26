@@ -90,8 +90,6 @@
 //////        knight.SecretFunction();
 
 //////        Console.Clear();
-
-
 //////    }
 //////}
 

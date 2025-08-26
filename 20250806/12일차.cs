@@ -3,6 +3,7 @@
 //    // delegate = 대리자
 //    // 함수 자체를 인자로 넘겨주는 방식이 가능하게 함
 //    // 즉, 함수를 타입화 시켜줌 -> int 라는 타입 = 정수형식을 int 라는 이름으로 부름
+//    // 함수의 원형 (시그니처)
 //    // delegate void OnClicked() 라는 애는 void를 반환하고 매개변수가 없는 타입을 OnClicked 라고 부르겠다는것
 
 //    // Event 
@@ -11,10 +12,14 @@
 //    // Action 
 //    // void 반환 즉 아무것도 반환하지 않는 델리게이트에 대해서 C#에서 미리 선언해둔것
 //    // delegate void Test();   => Action action;
+// Action<(매개변수)> 액션이름;
+// 액션이름 += 같은 함수타입의 함수;
 
 //    // Func 
 //    // void가 아닌 반환이 존재하는 델리게이트에 대해서 C#에서 미리 선언해둔것
 //    // delegate int Test();  => Func<int> func;
+// Func<(매개변수),반환타입> 펑크이름;
+// 펑크이름 += 같은 함수타입의 함수;
 
 //    class A
 //    {
@@ -38,7 +43,7 @@
 //        static void Main()
 //        {
 //            A a = new A();
-//            a.eventDelegate += Test;
+//            a.delegate1 += Test2;
 
 //            // a.eventDelegate();        X <- 이벤트로 랩핑 해놓으면 델리게이트 선언부에서만 호출 가능
 //            // a.eventDelegate.Invoke(); X <- 이벤트로 랩핑 해놓으면 델리게이트 선언부에서만 호출 가능

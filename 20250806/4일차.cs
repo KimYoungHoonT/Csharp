@@ -4,7 +4,7 @@
 //////}
 
 //////// A값만 받아서 +5 해서 뱉어주는 함수를 만들어야한다.
-//////static int Add(int a)
+//////static int Add(int b)
 //////{
 //////    return a + 5;
 //////}

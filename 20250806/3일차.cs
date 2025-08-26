@@ -28,7 +28,8 @@
 ////{
 ////    Console.WriteLine("법사를 선택하셨습니다.");
 ////}
-////else if (input == "3")
+////
+///else if (input == "3")
 ////{
 ////    Console.WriteLine("도둑을 선택하셨습니다.");
 ////}
@@ -172,7 +173,7 @@
 ////*/
 
 
-////for (int j = 5; true ; j--) // 조건이 비워져있으면 true
+////for (int j = 5; true ; --j) // 조건이 비워져있으면 true
 ////{
 ////    Console.WriteLine("Hello world");
 ////}
@@ -192,12 +193,12 @@
 //// 함수가 실행되면 스택메모리 메모리가 잡힙
 //// 스택 메모리 99  + 1 함수가 끝나면 사라진다
 
-//int Test(int a, int b)
+//int Test(int a)
 //{
-        
+
 //}
 
-// Test(10, 10);
+// Test();
 
 /////*
 //// [Stack 메모리]
