@@ -46,7 +46,7 @@
 //{
 //    static void Main()
 //    {
-//        MyList<Monster> list = new MyList<Monster>();
+//        MyList<> list = new MyList<Monster>();
 //    }
 //}
 
@@ -85,44 +85,44 @@
 //        public object[] arr = new object[10];
 //    }
 
-//    class Program
+//class Program
+//{
+//    static public void Test<T>(T value)
 //    {
-//        static public void Test<T>(T value)
-//        {
-//            Console.WriteLine($"입력된 값 : {value}");
-//        }
-
-//        static void Main()
-//        {
-//            // object = C# 모~~~~든 타입의 조상 클래스
-//            object a = 3; // 박싱: 스택 → 힙
-//            int number = (int)a;  // 언박싱: 힙 → 스택
-
-//            // 하지마라
-//            MyObjectList myList = new MyObjectList();
-//            myList.arr[0] = 3;              // 박싱
-//            int value = (int)myList.arr[0]; // 언박싱
-
-//            // var = 타입을 추론
-//            // bool a = false;
-//            var test1 = 3;         // 컴파일러: "3은 int니까 test는 int구나"
-//            var text2 = "Hello";     // 컴파일러: "이건 string이네"
-
-//            MyList<int> myIntList = new MyList<int>();       // int 전용 리스트
-//            MyList<string> myStringList = new MyList<string>(); // string 전용 리스트
-//            MyList<Monster> myMonsterList = new MyList<Monster>(); // Monster 전용 리스트
-
-//            int test3 = myIntList.GetItem(1);
-
-//            Test(3);          // int 타입으로 호출 하면서 추론
-//            Test("Hello"); // string 타입으로 호출 하면서 추론
-//            Test(3.14f);    // float 타입으로 호출 하면서 추론
-
-//            Test<int>(3);          // int 타입으로 호출
-//            Test<string>("Hello"); // string 타입으로 호출
-//            Test<float>(3.14f);    // float 타입으로 호출
-//        }
+//        Console.WriteLine($"입력된 값 : {value}");
 //    }
+
+//    static void Main()
+//    {
+//        // object = C# 모~~~~든 타입의 조상 클래스
+//        object a = 3; // 박싱: 스택 → 힙
+//        int number = (int)a;  // 언박싱: 힙 → 스택
+
+//        // 하지마라
+//        MyObjectList myList = new MyObjectList();
+//        myList.arr[0] = 3;              // 박싱
+//        int value = (int)myList.arr[0]; // 언박싱
+
+//        // var = 타입을 추론
+//        // bool a = false;
+//        var test1 = 3;         // 컴파일러: "3은 int니까 test는 int구나"
+//        var text2 = "Hello";     // 컴파일러: "이건 string이네"
+
+//        MyList<int> myIntList = new MyList<int>();       // int 전용 리스트
+//        MyList<string> myStringList = new MyList<string>(); // string 전용 리스트
+//        MyList<Monster> myMonsterList = new MyList<Monster>(); // Monster 전용 리스트
+
+//        int test3 = myIntList.GetItem(1);
+
+//        Test(3);          // int 타입으로 호출 하면서 추론
+//        Test("Hello"); // string 타입으로 호출 하면서 추론
+//        Test(3.14f);    // float 타입으로 호출 하면서 추론
+
+//        Test<int>(3);          // int 타입으로 호출
+//        Test<string>("Hello"); // string 타입으로 호출
+//        Test<float>(3.14f);    // float 타입으로 호출
+//    }
+//}
 //}
 
 
@@ -301,11 +301,12 @@
 //    //      \     /
 //    //     ElementalOrc (다중상속)
 
+// C
 //    class FireOrc : Monster, IElement
 //    {
 //        public override void Attack()
 //        {
-
+//
 //        }
 
 //        public void ElementalAttack()
@@ -327,7 +328,7 @@
 //    {
 //        static void Main()
 //        {
-
+//           Monster monster = new Monster(); XXXX
 //        }
 //    }
 //}
@@ -338,14 +339,16 @@
 //{
 //    class Knight
 //    {
-//        public int Hp { get; proteced set; }
-//    }  // 공개된 필드 → 외부에서 바로 접근 가능
+//        
+//        public int Hp{ get; protected set; } = 10;
+//     // 공개된 필드 → 외부에서 바로 접근 가능
 
-//    //public void SetHp(int hp)
+//    public int hp
+//    //protected void SetHp(int hp)
 //    //{
 //    //    this.hp = hp;
 //    //}
-//    //public int GetHp()
+//    //protected int GetHp()
 //    //{
 //    //    return hp;
 //    //}

@@ -2,22 +2,22 @@
 //{
 //    // delegate = 대리자
 //    // 함수 자체를 인자로 넘겨주는 방식이 가능하게 함
-//    // 즉, 함수를 타입화 시켜줌 -> int 라는 타입 = 정수형식을 int 라는 이름으로 부름
+//    // 즉, 함수를 타입화 시켜줌 -> int 라는 타입 = [정수형식]을 int 라는 이름으로 부름
 //    // 함수의 원형 (시그니처)
-//    // delegate void OnClicked() 라는 애는 void를 반환하고 매개변수가 없는 타입을 OnClicked 라고 부르겠다는것
+//    // delegate void OnClicked() 라는 애는 [void를 반환하고 매개변수가 없는 타입]을 OnClicked 라고 부르겠다는것
 
 //    // Event 
 //    // delegate의 아무대서 호출되는 부분을 랩핑을 통해서 아무대서나 호출되지 않게 막는것
 
-//    // Action 
+//    // Action
 //    // void 반환 즉 아무것도 반환하지 않는 델리게이트에 대해서 C#에서 미리 선언해둔것
-//    // delegate void Test();   => Action action;
+//    // delegate void action(int a, float b );   => Action<int, float> action;
 // Action<(매개변수)> 액션이름;
 // 액션이름 += 같은 함수타입의 함수;
 
 //    // Func 
 //    // void가 아닌 반환이 존재하는 델리게이트에 대해서 C#에서 미리 선언해둔것
-//    // delegate int Test();  => Func<int> func;
+//    // delegate int Test(string a, float b);  => Func<string, float, int> func;
 // Func<(매개변수),반환타입> 펑크이름;
 // 펑크이름 += 같은 함수타입의 함수;
 
@@ -26,30 +26,35 @@
 //        public delegate int delegate1();
 //        public event delegate1 eventDelegate;
 
-//        public void Test()
+//        public void Test(OnClicked onClick)
 //        {
+//            
+
 //            eventDelegate.Invoke();
 //        }
 
 //    }
 
-//    class Program
+//class Program
+//{
+//    static int Test(delegate1 d)
 //    {
-//        static int Test()
-//        {
-//            return 0;
-//        }
-
-//        static void Main()
-//        {
-//            A a = new A();
-//            a.delegate1 += Test2;
-
-//            // a.eventDelegate();        X <- 이벤트로 랩핑 해놓으면 델리게이트 선언부에서만 호출 가능
-//            // a.eventDelegate.Invoke(); X <- 이벤트로 랩핑 해놓으면 델리게이트 선언부에서만 호출 가능
-
-//        }
+//        d();
+//        return 0;
 //    }
+
+//    static void Main()
+//    {
+//        A a = new A();
+//        delegate1 d = new delegate1(Test2);
+//        d += Test3;
+
+//        a.Test(d);
+//         a.eventDelegate();        X <- 이벤트로 랩핑 해놓으면 델리게이트 선언부에서만 호출 가능
+//         a.eventDelegate.Invoke(); X <- 이벤트로 랩핑 해놓으면 델리게이트 선언부에서만 호출 가능
+
+//    }
+//}
 //}
 
 
@@ -299,7 +304,6 @@
 //    //    _items.Add(new Item() { itemType = Item.ItemType.Weapon, rariry = Item.Rariry.Normal });
 //    //    _items.Add(new Item() { itemType = Item.ItemType.Armor, rariry = Item.Rariry.Uncommon });
 //    //    _items.Add(new Item() { itemType = Item.ItemType.Ring, rariry = Item.Rariry.Rare });
-
 
 //    //    Item weapon = FindItem(delegate (Item item)
 //    //    {

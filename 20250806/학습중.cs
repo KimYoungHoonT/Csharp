@@ -1,81 +1,40 @@
-﻿using System;
-using System.Diagnostics;
+﻿//namespace MyLinkedList
+//{
+//    // 오늘의 강의 순서
+//    // 1. 고급문법 처음부터 끝까지 복습
+//    // 2. 어제 만든 리스트 만들기 (되도록 안보고) 그치만 보고 만들어도 GPT 써되 됨
+//    // 3. 연결리스트 재 구현(강사가)
+//    // 4. 연결리스트 구현 (학생이)
+//    // 5. 딕셔너리, 해시셋 에 대하여
+//    // 6. 딕셔너리와 해시셋이 사용하는 헤시테이블 기능이란?
 
-namespace MyList
+
+
+//    class MyLinkedList
+//    {
+
+//    }
+
+//    class Program
+//    {
+//        static void Main()
+//        {
+
+//        }
+//    }
+//}
+
+
+class Program
 {
-    [DebuggerTypeProxy(typeof(MyList<>.DebugView))]
-    class MyList<T>
+    static void Main(string[] args)
     {
-        public int count; // 실제로 사용중인 데이터 개수
-        public int capacity { get { return _data.Length; } } // 메모리에 예약된 배열의 실제 크기
+        int[] a = { 1, 2, 3, 4, 5, 6 };
+        int[] b = { 7, 7, 73, 74, 75, 76 };
 
-        T[] _data = new T[1];
+        List<int> list = new List<int>();
+        list.AddRange(b);
+        list.AddRange(a);
 
-        public void Add(T item)
-        {
-            if (count >= capacity)
-            {
-                T[] newArr = new T[count * 2];
-
-                for (int i = 0; i < count; i++)
-                    newArr[i] = _data[i];
-
-                _data = newArr;
-            }
-
-            _data[count] = item;
-            count++;
-        }
-
-        public T this[int index]
-        {
-            get { return _data[index]; }
-            set { _data[index] = value; }
-        }
-
-        public void RemoveAt(int index)
-        {
-            for (int i = index; i < count - 1; i++)
-            {
-                _data[i] = _data[i + 1];
-            }
-
-            count--;
-        }
-
-        // ===== 디버거 전용 프록시 =====
-        internal sealed class DebugView
-        {
-            private readonly MyList<T> _list;
-            public DebugView(MyList<T> list) { _list = list; }
-
-            // 디버거에서 바로 자식 아이템으로 보이게 함
-            [DebuggerBrowsable(DebuggerBrowsableState.RootHidden)]
-            public T[] Items
-            {
-                get
-                {
-                    var arr = new T[_list.count];
-                    Array.Copy(_list._data, 0, arr, 0, _list.count);
-                    return arr;
-                }
-            }
-        }
-    }
-
-    class Program
-    {
-        static void Main()
-        {
-            MyList<int> myList = new MyList<int>();
-            myList.Add(1);
-            myList.Add(2);
-            myList.Add(3);
-            myList.Add(4);
-            myList.Add(5);
-
-            myList.RemoveAt(2);
-
-        }
     }
 }
