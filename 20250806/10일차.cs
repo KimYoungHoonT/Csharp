@@ -16,12 +16,17 @@
 ////        // 일반배열 = 고정된 배열 - 크기를 수정하지 못한다.
 ////        // 배열은 참조 형식이다.
 
-////        // int[] a = new int[6];
+//             //  stack 영역    힙영역 [][][][][][][]
+////        // int[] numbers = new int[6];
+
 ////        // a = new int[7];
 ////        //정리 : 아예 새로운 배열을 만들고 변수의 참조를 변경, 기존 배열은 메모리 어딘가에 남아있다가 나중에 삭제됨
 
 ////        // int, flaot, bool = 값 그자체 저장됨 = 값형식 배열
 ////        // class, array = 힙영역에 생성 그 주소가 스택에 저장됨 = 참조형식 배열
+
+//          // Monster[] monster = new Monster[3];
+// monster[0] = new Monster();
 
 ////        // foreach 는 읽기 전용 반복문이다.
 ////        // 엘리먼트는 읽기전용이라 변경이 불가하다
@@ -231,7 +236,7 @@
 //{
 //    class Program
 //    {
-//        static public int[,] board = {
+//        static public int[\] board = {
 //                { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,},
 //                { 1, 0, 0, 0, 0, 0, 0, 0, 0, 1,},
 //                { 1, 0, 0, 0, 0, 0, 0, 0, 0, 1,},
@@ -424,6 +429,7 @@
 //            numbers.Add(10); // numbers[1] → 10
 //            numbers.Add(10); // numbers[2] → 10
 
+//            numbers.Insert(1, 25);
 //            numbers.Add(10); // numbers[4] → 10
 //            numbers.Add(20); // numbers[5] → 20
 //                             // numbers[6] → 25

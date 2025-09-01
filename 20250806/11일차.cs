@@ -21,8 +21,8 @@
 //    // T 라는게 결과적으로 런타임에 우리가 지정해준 형식으로 치환됨
 
 // class MyList<T> where T : new()
-// class MyList<T> where T : struct // T는 반드시 참조 형식의 데이터 타입만 가능하다
-//class MyList<T> where T : class // T는 반드시 값 형식의 데이터 타입만 가능하다
+// class MyList<T> where T : struct // T는 반드시 값 형식의 데이터 타입만 가능하다
+//class MyList<T> where T : class // T는 반드시 참조 형식의 데이터 타입만 가능하다
 //{
 //    T[] arr = new T[10];
 
@@ -339,13 +339,13 @@
 //{
 //    class Knight
 //    {
-//        
 //        public int Hp{ get; protected set; } = 10;
 //     // 공개된 필드 → 외부에서 바로 접근 가능
 
 //    public int hp
 //    //protected void SetHp(int hp)
 //    //{
+            
 //    //    this.hp = hp;
 //    //}
 //    //protected int GetHp()

@@ -25,10 +25,10 @@
 //    {
 //        public delegate int delegate1();
 //        public event delegate1 eventDelegate;
-
+//        Action action;
 //        public void Test(OnClicked onClick)
 //        {
-//            
+//            onClick();
 
 //            eventDelegate.Invoke();
 //        }
@@ -48,6 +48,7 @@
 //        A a = new A();
 //        delegate1 d = new delegate1(Test2);
 //        d += Test3;
+//        a.action += test();
 
 //        a.Test(d);
 //         a.eventDelegate();        X <- 이벤트로 랩핑 해놓으면 델리게이트 선언부에서만 호출 가능
