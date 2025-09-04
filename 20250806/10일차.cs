@@ -19,14 +19,14 @@
 //             //  stack 영역    힙영역 [][][][][][][]
 ////        // int[] numbers = new int[6];
 
-////        // a = new int[7];
+////        // numbers = new int[7];
 ////        //정리 : 아예 새로운 배열을 만들고 변수의 참조를 변경, 기존 배열은 메모리 어딘가에 남아있다가 나중에 삭제됨
 
 ////        // int, flaot, bool = 값 그자체 저장됨 = 값형식 배열
 ////        // class, array = 힙영역에 생성 그 주소가 스택에 저장됨 = 참조형식 배열
 
 //          // Monster[] monster = new Monster[3];
-// monster[0] = new Monster();
+//              Monster mon = monster[0] = new Monster();
 
 ////        // foreach 는 읽기 전용 반복문이다.
 ////        // 엘리먼트는 읽기전용이라 변경이 불가하다
@@ -296,6 +296,8 @@
 
 //            int[,] test = new int[3, 4];
 
+
+//            // 가변배열
 //            int[][] jagged = new int[3][];
 //            jagged[0] = new int[3];      // 0행 길이 3
 //            jagged[1] = new int[5];      // 1행 길이 5(다름)
@@ -510,9 +512,11 @@
 //            // ID:1234 → 몬스터 객체  // Key로 바로 찾음 (O(1))
 //            //    └───────┘
 
+//            // 내부적 해시 구조를 사용한다.
+
 //            // key = 데이터의 이름표
 //            // value = 데이터(내용물)
-//            //Dictionary<Key타입, Value타입> 변수명 = new Dictionary<Key타입, Value타입>();
+//            // Dictionary<Key타입, Value타입> 변수명 = new Dictionary<Key타입, Value타입>();
 //            // 예: Dictionary<int, string> → Key는 int, Value는 string
 //            // 예: Dictionary<int, Monster> → Key는 int, Value는 Monster 클래스
 
@@ -530,6 +534,10 @@
 
 //            Monster monster1 = dic[1];
 //            // Monster monster2 = dic[2]; // 해당하는 키가 없으면 에러 발생
+
+//           해시셋 : 중복된 값을 저장 하지 않는다. 키워드 
+//           벨류[0] = 1
+//           Add() = 1
 //class Monster
 //{
 //    void Test()

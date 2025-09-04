@@ -8,6 +8,7 @@
 //namespace Reflection
 //{
 //    // Reflection = 클래스용 X-ray 촬영
+//    // 런타임 시간에 클래스의 내부정보를 확인할 수 있는 좋은문법
 //    // 자주 사용하지 않음 - 그냥 개념을 알고 있으면 됨
 
 //    // Attribute
@@ -25,6 +26,8 @@
 //            this.message = message;
 //        }
 //    }
+//    
+//    코드의 메타데이터를 나타내는 데 사용되는 선언적 태그입니다.
 
 //    [Important("이건 중요한 메시지야, 니가 런타임에 확인해")]
 //    class Monster

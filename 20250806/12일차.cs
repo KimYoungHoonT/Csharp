@@ -1,5 +1,10 @@
 ﻿//namespace Delegate
 //{
+//    똑같다, 다만 언어차원에서 이미 지정한 차이가 있다.
+//    Action 보이드
+//    Func 반환형식 있는거
+//    콜백위해 사용한다.
+
 //    // delegate = 대리자
 //    // 함수 자체를 인자로 넘겨주는 방식이 가능하게 함
 //    // 즉, 함수를 타입화 시켜줌 -> int 라는 타입 = [정수형식]을 int 라는 이름으로 부름
@@ -11,11 +16,11 @@
 
 //    // Action
 //    // void 반환 즉 아무것도 반환하지 않는 델리게이트에 대해서 C#에서 미리 선언해둔것
-//    // delegate void action(int a, float b );   => Action<int, float> action;
+//    // delegate void action(int a, float b);   => Action<int, float> action;
 // Action<(매개변수)> 액션이름;
 // 액션이름 += 같은 함수타입의 함수;
 
-//    // Func 
+//    // Func
 //    // void가 아닌 반환이 존재하는 델리게이트에 대해서 C#에서 미리 선언해둔것
 //    // delegate int Test(string a, float b);  => Func<string, float, int> func;
 // Func<(매개변수),반환타입> 펑크이름;
@@ -25,9 +30,11 @@
 //    {
 //        public delegate int delegate1();
 //        public event delegate1 eventDelegate;
+//        public event delegate1 eventDelegate;
 //        Action action;
 //        public void Test(OnClicked onClick)
 //        {
+
 //            onClick();
 
 //            eventDelegate.Invoke();
@@ -311,6 +318,9 @@
 //    //        return item.itemType == ItemType.Weapon;
 //    //    }
 //    //    );
+
+//    //    무명메서드 - 이름없는 함수
+
 //    //    Item armor = FindItem(delegate (Item item) { return item.itemType == ItemType.Armor; });
 //    //    Item ring = FindItem(delegate (Item item) { return item.itemType == ItemType.Ring; });
 

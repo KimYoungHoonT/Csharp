@@ -1,15 +1,5 @@
 ﻿//namespace Generic_일반화
 //{
-//    // 배열 = 고정된 크기의 데이터를 순서대로 저장
-//    // 리스트 = 배열과 비슷한데 크기가 자유롭게 늘어나고 줄어드는 더 유연한 구조
-//    // 딕셔너리 = 키(Key)와 값(Value) 쌍을 사용해서 데이터를 더 빠르고 쉽게 꺼낼 수 있는 구조
-
-//    // 인벤토리 - 리스트, 
-//    // 아이템 정보 - 딕셔너리, 
-//    // 맵의 오브젝트 ID - 배열
-
-//    // List<int>
-//    // Dictionary<int, string>
 
 //    // Generic(일반화) - 타입을 나중에 결정하는 설계도
 //    // 장점
@@ -19,10 +9,12 @@
 
 //    // T - 관례 Type 약자 템플릿의 약자
 //    // T 라는게 결과적으로 런타임에 우리가 지정해준 형식으로 치환됨
+//    타입을 받는다, 받은 타입을 런타임과정중 확정한다,
+//    여러타입으로 사용가능하다, 박싱언박싱에 대한 대응책으로 사용될수 있다.
 
 // class MyList<T> where T : new()
 // class MyList<T> where T : struct // T는 반드시 값 형식의 데이터 타입만 가능하다
-//class MyList<T> where T : class // T는 반드시 참조 형식의 데이터 타입만 가능하다
+// class MyList<T> where T : class // T는 반드시 참조 형식의 데이터 타입만 가능하다
 //{
 //    T[] arr = new T[10];
 
@@ -95,8 +87,9 @@
 //    static void Main()
 //    {
 //        // object = C# 모~~~~든 타입의 조상 클래스
-//        object a = 3; // 박싱: 스택 → 힙
-//        int number = (int)a;  // 언박싱: 힙 → 스택
+//        object a = 3; // 박싱: 스택 → 힙   - 메모리  
+//        int number = (int)a;  // 언박싱: 힙 → 스택 - 형변환 
+//        IAttack a = new Attackstruct();
 
 //        // 하지마라
 //        MyObjectList myList = new MyObjectList();
@@ -105,7 +98,7 @@
 
 //        // var = 타입을 추론
 //        // bool a = false;
-//        var test1 = 3;         // 컴파일러: "3은 int니까 test는 int구나"
+//        var test1 = 3;           // 컴파일러: "3은 int니까 test는 int구나"
 //        var text2 = "Hello";     // 컴파일러: "이건 string이네"
 
 //        MyList<int> myIntList = new MyList<int>();       // int 전용 리스트
@@ -345,7 +338,7 @@
 //    public int hp
 //    //protected void SetHp(int hp)
 //    //{
-            
+
 //    //    this.hp = hp;
 //    //}
 //    //protected int GetHp()

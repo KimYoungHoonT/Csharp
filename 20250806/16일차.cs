@@ -40,7 +40,7 @@
 //            // Peek - 마지막 데이터 엿보기
 
 
-//            Queue<int> q = new Queue<int>();
+//            DeQueue<int> q = new Queue<int>();
 //            q.Enqueue(1);
 //            q.Enqueue(2);
 //            q.Enqueue(3);
@@ -88,7 +88,7 @@
 
 //        static void Main()
 //        {
-//            int[,] adj = new int[5, 5]
+//            int[,] adj = new int[5, 5] // 입접행렬
 //            {
 //                { -1, 02, 03, -1, -1 }, // 0 번점 표시
 //                { 02, -1, 07, 26, -1 }, // 1 번점 표시
@@ -137,6 +137,7 @@
 //            //    new List<int> { 4 },
 //            //    new List<int> { },
 //            //};
+
 //        }
 //    }
 //}
