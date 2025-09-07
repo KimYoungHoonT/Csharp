@@ -57,7 +57,7 @@
 
 //    class Knight : Player
 //    {
-//        public Knight() : base(PlayerType.Knight)
+//        public Knight()
 //        {
 //            SetStat(10, 10);
 //        }
