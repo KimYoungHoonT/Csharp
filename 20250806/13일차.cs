@@ -8,7 +8,7 @@
 //namespace Reflection
 //{
 //    // Reflection = 클래스용 X-ray 촬영
-//    // 런타임 시간에 클래스의 내부정보를 확인할 수 있는 좋은문법
+//    // 런타임 시간에 클래스의 내부정보를 확인할 수 있는 문법
 //    // 자주 사용하지 않음 - 그냥 개념을 알고 있으면 됨
 
 //    // Attribute
@@ -141,23 +141,27 @@
 
 //    }
 
-//    class Program
+//class Program
+//{
+//    static void Main()
 //    {
-//        static void Main()
-//        {
-//            int? number = null;
-//            int c = number ?? 5;
+//        int? number = null;
+//        int d = number.Value;
 
-//            if (number.HasValue == true)
-//            {
-//                int b = number.Value;
-//                Console.WriteLine(b);
-//            }
-//            else
-//            {
-//                int b = 5;
-//                Console.WriteLine(b);
-//            }
+//        int c = number ?? 5;
+
+//        if (number.HasValue == true)
+//        {
+//            int b = number.Value;
+//            Console.WriteLine(b);
+//        }
+//        else
+//        {
+//            int b = 5;
+//            Console.WriteLine(b);
+//        }
+//    }
+//}
 
 
 //        }

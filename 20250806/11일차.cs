@@ -12,6 +12,11 @@
 //    타입을 받는다, 받은 타입을 런타임과정중 확정한다,
 //    여러타입으로 사용가능하다, 박싱언박싱에 대한 대응책으로 사용될수 있다.
 
+// CRTP
+// class My<T> : MO where T : My<T>
+// class A : MY<A>
+// {
+// }
 // class MyList<T> where T : new()
 // class MyList<T> where T : struct // T는 반드시 값 형식의 데이터 타입만 가능하다
 // class MyList<T> where T : class // T는 반드시 참조 형식의 데이터 타입만 가능하다
@@ -227,6 +232,7 @@
 //        static void Main()
 //        {
 //            Monster monster = new Orc();
+//            
 
 //            Orc orc = new Orc();
 //            Skeleton skeleton = new Skeleton();
@@ -321,6 +327,7 @@
 //    {
 //        static void Main()
 //        {
+//           IElemnt elemet = // 인터페이스를 상속받는 애의 객체주소만 받음
 //           Monster monster = new Monster(); XXXX
 //        }
 //    }
