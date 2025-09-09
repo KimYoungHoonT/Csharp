@@ -97,6 +97,15 @@
 //                { -1, -1, -1, 09, -1 }, // 4 번점 표시
 //            };
 
+//            List<int>[] adj = new List<int>[5] // 인접 리스트
+//            {
+//                new List<int> { 1, 2 },
+//                new List<int> { 2, 3 },
+//                new List<int> { 0, 2, 3 },
+//                new List<int> { 4 },
+//                new List<int> { },
+//            };
+
 //            //List<Edge>[] adj = new List<Edge>[4]
 //            //{
 //            //    new List<Edge> { new Edge(1, 2),  new Edge(2, 3) },
@@ -129,14 +138,7 @@
 
 //            //Vertexs[4].edges.Add(Vertexs[3]);
 
-//            //List<int>[] adj = new List<int>[5] // 인접 리스트
-//            //{
-//            //    new List<int> { 1, 2 },
-//            //    new List<int> { 2, 3 },
-//            //    new List<int> { 0, 2, 3 },
-//            //    new List<int> { 4 },
-//            //    new List<int> { },
-//            //};
+//            
 //        }
 //    }
 //}

@@ -18,7 +18,7 @@
 //        int[,] adj = new int[6, 6] // 인접행렬 방식
 //        {
 //            { 0, 1, 0, 1, 0, 0, },
-//            { 1, 0, 1, 1, 0, 0, },
+//            { 1, 1, 1, 1, 0, 0, },
 //            { 0, 1, 0, 0, 0, 0, },
 //            { 1, 1, 0, 0, 0, 0, },
 //            { 0, 0, 0, 0, 0, 1, },
@@ -53,7 +53,7 @@
 //                    queue.Enqueue(next);
 //                    found[next] = true;
 //                    parant[next] = now;
-//                    distance[next] = distance[0] + 1;
+//                    distance[next] = distance[now] + 1;
 //                }
 //            }
 //        }
