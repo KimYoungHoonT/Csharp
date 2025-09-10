@@ -8,7 +8,6 @@
 //            // 비선형 자료 구조 - 그래프, 트리, 딕셔너리, 해시셋
 
 //            // 스택 - LIFO(last in first out) = 후입선출
-
 //            // 큐 - FIFO(first in first out) = 선입선출
 
 //            // 스택 (Stack)

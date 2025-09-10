@@ -119,3 +119,64 @@
 
 // 힙 
 //
+// 예외 처리 안함. 터지면 사용자 탓.
+class MyList<T>
+{
+    public int count = 0;
+    public T[] mylists = new T[1];
+    public int size = 1;
+
+    public void Insert(T data)
+    {
+        if (count == size)
+        {
+            size *= 2;
+            T[] newlist = new T[size];
+            for (int i = 0; i < mylists.Length; i++)
+            {
+                newlist[i] = mylists[i];
+            }
+            mylists = newlist;
+        }
+        mylists[count] = data;
+        count++;
+    }
+
+    public void RemoveAt(int index)
+    {
+        for (int i = index; i < mylists.Length - 1; i++)
+        {
+            mylists[i] = mylists[i + 1];
+        }
+    }
+
+    public T GetIndex(int index)
+    {
+        if ((index < 0) || (index >= mylists.Length))
+        {
+            throw new IndexOutOfRangeException();
+        }
+        return mylists[index];
+    }
+
+    public void PrintList()
+    {
+        for (int i = 0; i < mylists.Length; i++)
+        {
+            Console.Write(mylists[i] + " ");
+        }
+        Console.WriteLine();
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        MyList<int> list = new MyList<int>();
+        list.Insert(12);
+        list.Insert(12);
+        list.RemoveAt(12);
+
+    }
+}

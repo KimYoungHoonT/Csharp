@@ -30,6 +30,8 @@
 //        bool[] found = new bool[6];
 //        int[] parant = new int[6];  // parant[0] => 0번 정점의 부모가 누구야?
 //        int[] distance = new int[6]; // distance[0] 해당 정점까지 걸린 길이 몇개야?
+//        int[] dy = 
+//        int[] dx
 
 //        public void BFS(int start)
 //        {
@@ -46,6 +48,7 @@
 //                Console.WriteLine($"방문 : {now}");
 //                for (int next = 0; next < 6; next++)
 //                {
+
 //                    if (adj[now, next] == 0)
 //                        continue;
 //                    if (found[next] == true)
@@ -84,7 +87,10 @@
 //            for (int now = 0; now < adj.GetLength(0); now++)
 //            {
 //                if (found[now] == false)
+//                {
 //                    DFS(now);
+//                    COUNT++;
+//                }
 //            }
 //        }
 //    }
