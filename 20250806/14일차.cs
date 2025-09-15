@@ -1,9 +1,5 @@
-﻿//using System.Diagnostics;
-//using System.Xml.Linq;
-
-//namespace MyList
+﻿//namespace MyList
 //{
-//    [DebuggerTypeProxy(typeof(MyList<>.DebugView))]
 //    class MyList<T>
 //    {
 //        T[] _data = new T[1];
@@ -15,14 +11,12 @@
 //        {
 //            get
 //            {
-//                if (index >= count)
-//                    throw new ArgumentOutOfRangeException(nameof(index));
+                
 //                return _data[index];
 //            }
 //            set
 //            {
-//                if (index >= count)
-//                    throw new ArgumentOutOfRangeException(nameof(index));
+               
 //                _data[index] = value;
 //            }
 //        }
@@ -63,25 +57,6 @@
 
 //            count--;
 //        }
-
-//        // ===== 디버거 전용 프록시 =====
-//        internal sealed class DebugView
-//        {
-//            private readonly MyList<T> _list;
-//            public DebugView(MyList<T> list) { _list = list; }
-
-//            // 디버거에서 바로 자식 아이템으로 보이게 함
-//            [DebuggerBrowsable(DebuggerBrowsableState.RootHidden)]
-//            public T[] Items
-//            {
-//                get
-//                {
-//                    var arr = new T[_list.count];
-//                    Array.Copy(_list._data, 0, arr, 0, _list.count);
-//                    return arr;
-//                }
-//            }
-//        }
 //    }
 
 
@@ -104,10 +79,10 @@
 //}
 
 
-using System.Collections.Generic;
+//using System.Collections.Generic;
 
-// 배열 / 리스트 → 인덱스 접근 빠름 (O(1)), 하지만 중간 삽입/삭제 느림 (O(n))
-// 연결 리스트 → 중간 삽입/삭제 빠름 (O(1)), 하지만 인덱스 접근 느림 (O(n))
+//// 배열 / 리스트 → 인덱스 접근 빠름 (O(1)), 하지만 중간 삽입/삭제 느림 (O(n))
+//// 연결 리스트 → 중간 삽입/삭제 빠름 (O(1)), 하지만 인덱스 접근 느림 (O(n))
 
 //namespace LinkedList
 //{
@@ -150,7 +125,7 @@ using System.Collections.Generic;
 //            // O(1);
 //            return newNode;
 //        }
-//        
+
 //        // 해당 하는 노드 하나를 삭제
 //        public void Remove(Node node)
 //        {
