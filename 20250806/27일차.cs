@@ -114,63 +114,205 @@ namespace _20250806
     // 코루틴 => 하나의 쓰레드에서 처리되는거다!
 
 
-    public class MyCollection : IEnumerable
-    {
-        private int[] _data;
+    //public class MyCollection : IEnumerable
+    //{
+    //    private int[] _data;
 
-        public MyCollection(int[] data)
-        {
-            _data = data;
-        }
+    //    public MyCollection(int[] data)
+    //    {
+    //        _data = data;
+    //    }
 
-        public IEnumerator GetEnumerator()
-        {
-            return new MyEnermerator(_data);
-        }
+    //    public IEnumerator GetEnumerator()
+    //    {
+    //        return new MyEnermerator(_data);
+    //    }
 
-        private class MyEnermerator : IEnumerator
-        {
-            private int[] _data;
-            private int _position = -1; // 시작전 위치
+    //    private class MyEnermerator : IEnumerator
+    //    {
+    //        private int[] _data;
+    //        private int _position = -1; // 시작전 위치
 
-            public MyEnermerator(int[] data)
-            {
-                _data = data;
-            }
+    //        public MyEnermerator(int[] data)
+    //        {
+    //            _data = data;
+    //        }
 
-            public object Current
-            {
-                get
-                {
-                    if (_position < 0 || _position >= _data.Length)
-                        throw new InvalidOperationException();
-                    return _data[_position];
-                }
-            }
+    //        public object Current
+    //        {
+    //            get
+    //            {
+    //                if (_position < 0 || _position >= _data.Length)
+    //                    throw new InvalidOperationException();
+    //                return _data[_position];
+    //            }
+    //        }
 
-            public bool MoveNext()
-            {
-                _position++;
-                return _position < _data.Length;
-            }
+    //        public bool MoveNext()
+    //        {
+    //            _position++;
+    //            return _position < _data.Length;
+    //        }
 
-            public void Reset()
-            {
-                _position = -1;
-            }
-        }
-    }
+    //        public void Reset()
+    //        {
+    //            _position = -1;
+    //        }
+    //    }
+    //}
 
+
+    //class Program
+    //{
+    //    static void Main()
+    //    {
+    //        var myData = new MyCollection(new int[] { 10, 20, 30 });
+
+    //        foreach (int item in myData)
+    //        {
+    //            Console.WriteLine(item);
+    //        }
+    //    }
+    //}
+
+
+
+    // 인접행렬
+    // 단점 : 연결이되어있지 않은 간선까지 표현을 하기에 메모리에 낭비가 있을수 있음
+    
+    // 인접리스트
+    // 단점 : 연결되어있지 않은 간선은 기록하지 않기에 정점에 대한 순회가 필요하다. 
+
+    //class Graph
+    //{
+    //    int[,] adj = new int[6, 6]
+    //    {
+    //        { 0, 1, 0, 1, 0, 0 },
+    //        { 1, 0, 1, 1, 0, 0 },
+    //        { 0, 1, 0, 0, 0, 0 },
+    //        { 1, 1, 0, 0, 0, 0 },
+    //        { 0, 0, 0, 0, 0, 1 },
+    //        { 0, 0, 0, 0, 1, 0 },
+    //    };
+
+    //    bool[] visited = new bool[6];
+
+    //    public void DFS(int now)
+    //    {
+    //        // 1. now 부터 방문 후 방문 체크
+    //        Console.WriteLine($"방문 : {now}");
+    //        visited[now] = true;
+
+    //        // 2. now 와 연결된 정점들을 하나씩
+    //        // 확인해서 아직 방문하지 않은 정점을
+    //        // 방문
+    //        for (int next = 0; next < adj.GetLength(0); next++)
+    //        {
+    //            // 배열을 초과하지 않는지 확인
+
+    //            if (adj[now, next] == 0)
+    //                continue;
+
+    //            if (visited[next] == true)
+    //                continue;
+
+    //            DFS(next);
+    //        }
+    //    }
+
+    //    public void SearchAll()
+    //    {
+    //        visited = new bool[6];
+    //        for (int now = 4; now < adj.GetLength(0); now++)
+    //        {
+    //            if (visited[now] == false)
+    //            {
+    //                DFS(now);
+    //                count++;
+    //            }
+    //        }
+    //    }
+    //}
 
     class Program
     {
+        static int[,] adj = new int[50, 50];
+        static bool[,] visited = new bool[50, 50];
+        static int[] dY = { -1, 0, 1, 0 };
+        static int[] dX = { 0, -1, 0, 1 };
+        static int m, n, k;
+
+        static void DFS(int y, int x)
+        {
+            //1 단계 방문처리
+            visited[y, x] = true;
+            //2 연결되어있는 노드 확인해서 아직 방문 안한녀석 방문
+            for (int i = 0; i < 4; i++)
+            {
+                int newY = y + dY[i];
+                int newX = x + dX[i];
+
+                if (newY < 0 || newY >= n || newX < 0 || newX >= m)
+                    continue;
+
+                if (adj[newY, newX] == 0)
+                    continue;
+
+                if (visited[newY, newX] == true)
+                    continue;
+
+                DFS(newY, newX);
+            }
+        }
+
         static void Main()
         {
-            var myData = new MyCollection(new int[] { 10, 20, 30 });
-
-            foreach (int item in myData)
+            int t = int.Parse(Console.ReadLine());
+            while (t-- > 0) 
             {
-                Console.WriteLine(item);
+                int ret = 0;
+
+                Array.Clear(adj);
+                Array.Clear(visited);
+
+                string[] s = Console.ReadLine().Split();
+                m = int.Parse(s[0]);
+                n = int.Parse(s[1]);
+                k = int.Parse(s[2]);
+
+                int x, y;
+
+                for (int i = 0; i < k; i++)
+                {
+                    s = Console.ReadLine().Split();
+                    x = int.Parse(s[0]);
+                    y = int.Parse(s[1]);
+                    adj[y, x] = 1;
+                }
+
+                // SearchAll = 이 함수를 만들라는게 아니라 
+                // 이전에 했던 SearchAll 함수를 기억하라고!!!!!
+                for (int i = 0; i < n; i++)
+                {
+                    for (int j = 0; j < m; j++)
+                    {
+                        // 연결되있음?
+                        if (adj[i, j] == 0)
+                            continue;
+
+                        // 방문했음?
+                        if (visited[i, j] == true)
+                            continue;
+
+                        // DFS 아 오케이 돌자
+                        DFS(i, j);
+
+                        // ret++; 돌고 나왔으니 덩어리 + 1
+                        ret++;
+                    }
+                }
+
+                Console.WriteLine(ret);
             }
         }
     }
