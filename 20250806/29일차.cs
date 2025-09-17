@@ -50,12 +50,32 @@ namespace 트리
             Console.WriteLine(node.Data);
 
             // 내 자식도 똑같이 출력하게 함
+            foreach (var child in node.Children)
+            {
+                PrintTree(child);
+            }
+        }
 
+
+        static int GetHeight(TreeNode<string> node)
+        {
+            int height = 0;
+
+            foreach (var child in node.Children)
+            {
+                int newHeight = GetHeight(child) + 1;
+                //if (height < newHeight)
+                //    height = newHeight;
+                height = Math.Max(height, newHeight);
+            }
+
+            return height;
         }
 
         static void Main()
         {
             var root = MakeTree();
+            PrintTree(root);
         }
     }
 }
